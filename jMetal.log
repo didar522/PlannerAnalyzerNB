@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-09-06T11:49:00</date>
+  <millis>1504720140623</millis>
+  <sequence>0</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.JMetalLogger</class>
+  <method>configureLoggers</method>
+  <thread>1</thread>
+  <message>Loggers configured with null</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:00</date>
+  <millis>1504720140666</millis>
+  <sequence>1</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:00</date>
+  <millis>1504720140715</millis>
+  <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:00</date>
+  <millis>1504720140722</millis>
+  <sequence>5</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:00</date>
+  <millis>1504720140721</millis>
+  <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:00</date>
+  <millis>1504720140722</millis>
+  <sequence>4</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>13</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:03</date>
+  <millis>1504720143223</millis>
+  <sequence>6</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:03</date>
+  <millis>1504720143225</millis>
+  <sequence>7</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:03</date>
+  <millis>1504720143225</millis>
+  <sequence>9</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:03</date>
+  <millis>1504720143225</millis>
+  <sequence>8</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:03</date>
+  <millis>1504720143225</millis>
+  <sequence>10</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>13</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:05</date>
+  <millis>1504720145176</millis>
+  <sequence>11</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:05</date>
+  <millis>1504720145177</millis>
+  <sequence>12</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:05</date>
+  <millis>1504720145177</millis>
+  <sequence>14</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:05</date>
+  <millis>1504720145177</millis>
+  <sequence>15</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>13</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:05</date>
+  <millis>1504720145177</millis>
+  <sequence>13</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:06</date>
+  <millis>1504720146535</millis>
+  <sequence>16</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:06</date>
+  <millis>1504720146535</millis>
+  <sequence>18</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>13</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:06</date>
+  <millis>1504720146535</millis>
+  <sequence>19</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:06</date>
+  <millis>1504720146535</millis>
+  <sequence>20</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:06</date>
+  <millis>1504720146535</millis>
+  <sequence>17</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:07</date>
+  <millis>1504720147868</millis>
+  <sequence>21</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:07</date>
+  <millis>1504720147869</millis>
+  <sequence>22</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:07</date>
+  <millis>1504720147869</millis>
+  <sequence>23</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:07</date>
+  <millis>1504720147874</millis>
+  <sequence>24</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:07</date>
+  <millis>1504720147875</millis>
+  <sequence>25</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>13</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:09</date>
+  <millis>1504720149207</millis>
+  <sequence>26</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:09</date>
+  <millis>1504720149208</millis>
+  <sequence>27</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:09</date>
+  <millis>1504720149208</millis>
+  <sequence>28</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:09</date>
+  <millis>1504720149209</millis>
+  <sequence>29</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:09</date>
+  <millis>1504720149225</millis>
+  <sequence>30</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:10</date>
+  <millis>1504720150654</millis>
+  <sequence>31</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:10</date>
+  <millis>1504720150655</millis>
+  <sequence>32</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:10</date>
+  <millis>1504720150655</millis>
+  <sequence>33</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:10</date>
+  <millis>1504720150655</millis>
+  <sequence>34</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:10</date>
+  <millis>1504720150688</millis>
+  <sequence>35</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:11</date>
+  <millis>1504720151905</millis>
+  <sequence>36</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:11</date>
+  <millis>1504720151905</millis>
+  <sequence>37</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:11</date>
+  <millis>1504720151909</millis>
+  <sequence>38</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:11</date>
+  <millis>1504720151911</millis>
+  <sequence>39</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:11</date>
+  <millis>1504720151911</millis>
+  <sequence>40</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:13</date>
+  <millis>1504720153361</millis>
+  <sequence>41</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:13</date>
+  <millis>1504720153362</millis>
+  <sequence>42</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:13</date>
+  <millis>1504720153362</millis>
+  <sequence>44</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:13</date>
+  <millis>1504720153362</millis>
+  <sequence>43</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:13</date>
+  <millis>1504720153380</millis>
+  <sequence>45</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:14</date>
+  <millis>1504720154743</millis>
+  <sequence>46</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:14</date>
+  <millis>1504720154744</millis>
+  <sequence>47</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:14</date>
+  <millis>1504720154746</millis>
+  <sequence>48</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:14</date>
+  <millis>1504720154746</millis>
+  <sequence>49</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:14</date>
+  <millis>1504720154759</millis>
+  <sequence>50</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:15</date>
+  <millis>1504720155955</millis>
+  <sequence>51</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:15</date>
+  <millis>1504720155955</millis>
+  <sequence>52</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:15</date>
+  <millis>1504720155956</millis>
+  <sequence>54</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:15</date>
+  <millis>1504720155956</millis>
+  <sequence>53</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:15</date>
+  <millis>1504720155956</millis>
+  <sequence>55</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:17</date>
+  <millis>1504720157291</millis>
+  <sequence>56</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:17</date>
+  <millis>1504720157292</millis>
+  <sequence>58</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:17</date>
+  <millis>1504720157292</millis>
+  <sequence>60</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:17</date>
+  <millis>1504720157292</millis>
+  <sequence>59</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:17</date>
+  <millis>1504720157292</millis>
+  <sequence>57</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:18</date>
+  <millis>1504720158696</millis>
+  <sequence>61</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:18</date>
+  <millis>1504720158696</millis>
+  <sequence>62</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:18</date>
+  <millis>1504720158697</millis>
+  <sequence>64</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:18</date>
+  <millis>1504720158696</millis>
+  <sequence>63</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:18</date>
+  <millis>1504720158697</millis>
+  <sequence>65</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:20</date>
+  <millis>1504720160125</millis>
+  <sequence>66</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:20</date>
+  <millis>1504720160125</millis>
+  <sequence>67</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:20</date>
+  <millis>1504720160126</millis>
+  <sequence>69</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:20</date>
+  <millis>1504720160125</millis>
+  <sequence>68</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:20</date>
+  <millis>1504720160155</millis>
+  <sequence>70</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:21</date>
+  <millis>1504720161506</millis>
+  <sequence>71</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:21</date>
+  <millis>1504720161506</millis>
+  <sequence>72</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:21</date>
+  <millis>1504720161507</millis>
+  <sequence>75</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:21</date>
+  <millis>1504720161507</millis>
+  <sequence>74</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:21</date>
+  <millis>1504720161506</millis>
+  <sequence>73</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:22</date>
+  <millis>1504720162878</millis>
+  <sequence>76</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:22</date>
+  <millis>1504720162879</millis>
+  <sequence>77</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:22</date>
+  <millis>1504720162879</millis>
+  <sequence>79</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:22</date>
+  <millis>1504720162879</millis>
+  <sequence>78</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:22</date>
+  <millis>1504720162879</millis>
+  <sequence>80</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:24</date>
+  <millis>1504720164353</millis>
+  <sequence>81</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:24</date>
+  <millis>1504720164353</millis>
+  <sequence>82</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>11</thread>
+  <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:24</date>
+  <millis>1504720164353</millis>
+  <sequence>83</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>12</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:24</date>
+  <millis>1504720164353</millis>
+  <sequence>84</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-06T11:49:24</date>
+  <millis>1504720164353</millis>
+  <sequence>85</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
+</record>
+</log>
