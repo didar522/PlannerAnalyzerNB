@@ -1,7 +1,9 @@
+package homeBackend;
+
 import dataTemplates.ReleaseInfoCollection;
-import dataTemplates.resultTemplate;
 import dataTemplates.DataIssueTemplate;
 import dataTemplates.ReleaseCalendarTemplate;
+import dataTemplates.resultTemplate;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,6 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import dataPreprocess.DataReadExcelFiles;
+import java.io.File;
 
 public class mainRunning {
 
@@ -21,6 +24,11 @@ public class mainRunning {
 	//	System.getProperty("user.dir")+ "/src/resources/InputOutput/";
 	public static String strFileName = "N4.xlsx"; 
 	public static String strSheetName = strFileName; 
+        
+        
+//        public static String strFilePath;
+//	public static String strFileName; 
+//	public static String strSheetName; 
 	public static int intStartingRowofData = 1;
 
 	public static int daysForReplan = 0; 
@@ -30,12 +38,12 @@ public class mainRunning {
 	
 	public static ReleaseInfoCollection obj_ReleaseInfoCollection;
 	public static ArrayList<ReleaseCalendarTemplate> releaseInfo = new ArrayList<ReleaseCalendarTemplate> ();
-	public static ArrayList <resultTemplate> list_resultFormat; 
+	public static ArrayList <resultTemplate> list_resultAnalyzer; 
 	
 	public static HashMap<String, Integer> excelFileIndex = new HashMap <String, Integer> ();  
 	public static ArrayList<DataIssueTemplate> allIssueData = new ArrayList<DataIssueTemplate>();  
 	
-	
+	public static ArrayList<resultTemplate> list_resultPlanner; 
 	
 	
 	
@@ -43,13 +51,30 @@ public class mainRunning {
 		
 		ReadingExcelsheet (allIssueData,intStartingRowofData,strFilePath,strFileName,strSheetName); 
 		
-		System.out.println(allIssueData.get(3).getStrKey());
-		daysForReplan =2; 
-		
-		runningAnalyzer (daysForReplan); 
-//		runningPlanner ();
+//		System.out.println(allIssueData.get(3).getStrKey());
+//		daysForReplan =2; 
+//		
+//		runningAnalyzer (daysForReplan); 
+		runningPlanner ();
+
+                
 		
 	}
+        
+        public mainRunning (){
+            
+        }
+        
+        public static void tokenizeFilePath (String fileAddress){
+            File f = new File(fileAddress);
+            strFileName = f.getName();
+            strSheetName = strFileName; 
+            strFilePath = f.getAbsolutePath().substring(0, f.getAbsolutePath().lastIndexOf("\\")+1); 
+            
+            System.out.println (strFilePath+"--------"+ strFileName ); 
+                    
+                    
+        }
 	
 	
 	public static void runningPlanner () throws Exception {
@@ -60,7 +85,7 @@ public class mainRunning {
 		releaseEnd=obj_ReleaseInfoCollection.getReleaseDate(3);
 		
 		obj_homePlanner = new homePlanner(releaseStart, releaseEnd, 4, allIssueData, 15000, 20, 30, 50); 
-		obj_homePlanner.runPlanner();
+		list_resultPlanner = obj_homePlanner.runPlanner();
 	}
 	
 	
@@ -74,14 +99,14 @@ public class mainRunning {
 			 
 				releaseStart=obj_ReleaseInfoCollection.getReleaseDate(releasenum);
 				releaseEnd=obj_ReleaseInfoCollection.getReleaseDate(releasenum+1);
-				list_resultFormat= new ArrayList <resultTemplate> (); 
+				list_resultAnalyzer= new ArrayList <resultTemplate> (); 
 				
 				for (int replanIterator=2;replanIterator<15;replanIterator=replanIterator+daysForReplan){
 					obj_homeAnalyzer = new homeAnalyzer (releaseStart, releaseEnd, replanIterator, allIssueData ); 
-					list_resultFormat.add(obj_homeAnalyzer.runPlanner());
+					list_resultAnalyzer.add(obj_homeAnalyzer.runPlanner());
 				}
 				
-				displayResults (releasenum, list_resultFormat);
+				displayResults (releasenum, list_resultAnalyzer);
 		}
 	}
 	

@@ -8,6 +8,13 @@ package gui.Planner;
 import dataTemplates.DataIssueTemplate;
 import db.sqliteAllResults;
 import guiImport.importJDialog;
+import homeBackend.homePlanner;
+import static homeBackend.mainRunning.allIssueData;
+import static homeBackend.mainRunning.dataReleaseDates;
+import static homeBackend.mainRunning.list_resultPlanner;
+import static homeBackend.mainRunning.obj_ReleaseInfoCollection;
+import static homeBackend.mainRunning.releaseEnd;
+import static homeBackend.mainRunning.releaseStart;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -23,8 +30,10 @@ public class plannerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form plannerJPanel
      */
-    public plannerJPanel() {
+    public plannerJPanel(ArrayList<DataIssueTemplate> tmpallIssueData) {
         initComponents();
+        this.allIssueData = tmpallIssueData; 
+        System.out.println("from the jpanel "+allIssueData.get(10).getStrKey());
     }
 
     /**
@@ -191,9 +200,26 @@ public class plannerJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String Query1 = "SELECT * FROM AllIssueData;";
+        
+        homePlanner obj_homePlanner;
+		dataReleaseDates();
+		
+		releaseStart=obj_ReleaseInfoCollection.getReleaseDate(2);
+		releaseEnd=obj_ReleaseInfoCollection.getReleaseDate(3);
+		
+		obj_homePlanner = new homePlanner(releaseStart, releaseEnd, 4, allIssueData, 15000, 20, 30, 50); 
+        try {
+            list_resultPlanner = obj_homePlanner.runPlanner();
+        } catch (Exception ex) {
+            System.out.println("gui.Planner.plannerJPanel.jButton1ActionPerformed()");
+            Logger.getLogger(plannerJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String Query1 = "SELECT * FROM OfferedIssueData WHERE Offered LIKE \"offered in 1\";";
+        String Query2 = "SELECT * FROM OfferedIssueData WHERE Offered LIKE \"offered in 2\";";
+        String Query3 = "SELECT * FROM OfferedIssueData WHERE Offered LIKE \"offered in 3\";";
         display1ExcelData (Query1); 
-        display2ExcelData (Query1); 
+        display2ExcelData (Query2); 
         display3ExcelData (Query1); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -204,6 +230,7 @@ public void display1ExcelData (String strQuery){
             obj_sqliteAllResults.closeConnection();
             
         } catch (Exception ex) {
+            System.out.println("gui.Planner.plannerJPanel.display1ExcelData()");
             Logger.getLogger(importJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -215,6 +242,7 @@ public void display2ExcelData (String strQuery){
             obj_sqliteAllResults.closeConnection();
             
         } catch (Exception ex) {
+            System.out.println("gui.Planner.plannerJPanel.display2ExcelData()");
             Logger.getLogger(importJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -226,6 +254,7 @@ public void display3ExcelData (String strQuery){
             obj_sqliteAllResults.closeConnection();
             
         } catch (Exception ex) {
+            System.out.println("gui.Planner.plannerJPanel.display3ExcelData()");
             Logger.getLogger(importJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

@@ -1,7 +1,8 @@
 package dataTemplates;
 
 public class resultTemplate {
-	public int daysForReplan; 
+	public int solutionNumber; 
+        public int daysForReplan; 
 	public int totalValue;
 	public int totalActualValue;
 	public int actbugRatio=0, actftrRatio=0, actimpRatio=0;
