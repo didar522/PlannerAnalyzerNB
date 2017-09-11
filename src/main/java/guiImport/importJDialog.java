@@ -38,7 +38,7 @@ public class importJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         loadButton.setEnabled(false);
-        importSuccessJLabel.setText("Importing a new dataset may take five minutes to complete");
+        importSuccessJLabel.setText("Saving the dataset in DB may take upto five minutes to upload");
         
     }
 
@@ -80,9 +80,11 @@ public class importJDialog extends javax.swing.JDialog {
             }
         });
 
+        importSuccessJLabel.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        importSuccessJLabel.setForeground(new java.awt.Color(0, 51, 255));
         importSuccessJLabel.setText("jLabel1");
 
-        checkDatasetButton.setText("Check dataset");
+        checkDatasetButton.setText("Save in DB");
         checkDatasetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkDatasetButtonActionPerformed(evt);
@@ -94,19 +96,17 @@ public class importJDialog extends javax.swing.JDialog {
         importBrowseJPanelLayout.setHorizontalGroup(
             importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(importBrowseJPanelLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
                 .addGroup(importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(importSuccessJLabel)
                     .addGroup(importBrowseJPanelLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
                         .addComponent(importJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(browseButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(loadButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkDatasetButton))
-                    .addGroup(importBrowseJPanelLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(importSuccessJLabel)))
+                        .addComponent(checkDatasetButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         importBrowseJPanelLayout.setVerticalGroup(
@@ -120,7 +120,7 @@ public class importJDialog extends javax.swing.JDialog {
                     .addComponent(checkDatasetButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(importSuccessJLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,7 +140,7 @@ public class importJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(importBrowseJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(importProjectDisplayjScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addComponent(importProjectDisplayjScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -155,8 +155,7 @@ public class importJDialog extends javax.swing.JDialog {
           obj_mainRunning.tokenizeFilePath (fileAddress);
           obj_mainRunning.ReadingExcelsheet(allIssueData, 1, obj_mainRunning.strFilePath, obj_mainRunning.strFileName, obj_mainRunning.strFileName);
           
-          insertExcelData (); 
-          importSuccessJLabel.setText("Data uploaded in SQLite database successfully"); 
+          importSuccessJLabel.setText("Loaded records for this session"); 
           
           
     }//GEN-LAST:event_loadButtonActionPerformed
@@ -239,6 +238,12 @@ public class importJDialog extends javax.swing.JDialog {
 
     private void checkDatasetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkDatasetButtonActionPerformed
         // TODO add your handling code here:
+        
+        
+        insertExcelData (); 
+        importSuccessJLabel.setText("Data uploaded in SQLite database successfully");
+        
+        
         obj_TableViewJPanel  = new TableViewJPanel  (); 
         importProjectDisplayjScrollPane1.setViewportView(obj_TableViewJPanel);
     }//GEN-LAST:event_checkDatasetButtonActionPerformed

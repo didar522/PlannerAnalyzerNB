@@ -66,10 +66,10 @@ public class homePlanner {
 		obj_relPlanning = new relPlanning(); 
 		obj_relPlanning.performRelPlanning(backlogIssueData, dblAvailableCapacity, bugRatio, ftrRatio, impRatio); 
 		
-		
+		System.out.println("Size of the solution +++++"+ obj_relPlanning.transfernonDominatedSolutions.size());
 		proposedIssueData1=obj_relPlanning.identifyOfferedforChoice(0); 
-		proposedIssueData1=obj_relPlanning.identifyOfferedforChoice(obj_relPlanning.transfernonDominatedSolutions.size()-1); 
-		proposedIssueData1=obj_relPlanning.identifyOfferedforChoice((int)(obj_relPlanning.transfernonDominatedSolutions.size()-1)/2); 
+		proposedIssueData2=obj_relPlanning.identifyOfferedforChoice(obj_relPlanning.transfernonDominatedSolutions.size()-1); 
+		proposedIssueData3=obj_relPlanning.identifyOfferedforChoice((int)(obj_relPlanning.transfernonDominatedSolutions.size()-1)/2); 
 		
                 try{
                     Class.forName("org.sqlite.JDBC");
@@ -99,7 +99,7 @@ public class homePlanner {
         
         public void storePlanInDB (ArrayList<DataIssueTemplate> planIssueData, int solutionNum){
             try {
-                String strQuery = "Insert into OfferedIssueData values (?,?,?,?,?,?,?);";
+                String strQuery = "Insert into OfferedIssueData values (?,?,?,?,?,?);";
                 PreparedStatement preparedStatement = connection.prepareStatement(strQuery); 
 
                 for (int i=0;i<planIssueData.size();i++){
@@ -107,16 +107,15 @@ public class homePlanner {
                     
                     preparedStatement.setString(1, planIssueData.get(i).getStrKey());
                     preparedStatement.setString(2, planIssueData.get(i).getStrSummary());
-                    preparedStatement.setString(3, planIssueData.get(i).getStrDescription());
-                    preparedStatement.setString(4, planIssueData.get(i).getStrStatus());
-                    preparedStatement.setString(5, planIssueData.get(i).getStrPriority());
-                    preparedStatement.setString(6, planIssueData.get(i).getStrResolution());
+                    preparedStatement.setString(3, planIssueData.get(i).getStrStatus());
+                    preparedStatement.setString(4, planIssueData.get(i).getStrPriority());
+                    preparedStatement.setString(5, planIssueData.get(i).getStrResolution());
                     
                     if (planIssueData.get(i).isOffered()==true) {
-                        preparedStatement.setString(7, "offered in "+solutionNum);
+                        preparedStatement.setString(6, "offered in "+solutionNum);
                     }
                     else {
-                        preparedStatement.setString(7, "");
+                        preparedStatement.setString(6, "");
                     }
                     preparedStatement.executeUpdate();
                 }
@@ -143,7 +142,9 @@ public void calculateResults (ArrayList<DataIssueTemplate> displayIssueData, int
 	double totalFtrTimeSpent = 0, totalBugTimeSpent = 0,totalImpTimeSpent = 0; 
 		
 		for (DataIssueTemplate iterator: displayIssueData){
-			totalValue += iterator.getPriorityValue(); 
+                    if (iterator.isOffered()==true){
+                    
+                    totalValue += iterator.getPriorityValue(); 
 			
 			if (iterator.getIssueTypeValue()==1){
 				totalFtrTimeSpent += iterator.getDefaultTimespent(); 
@@ -155,7 +156,8 @@ public void calculateResults (ArrayList<DataIssueTemplate> displayIssueData, int
 			else if(iterator.getIssueTypeValue()==1){
 				totalImpTimeSpent += iterator.getDefaultTimespent(); 
 			}
-		}
+                    }    
+                }
 		
             resultTemplate obj_resultFormat = new resultTemplate(); 
                 
@@ -175,7 +177,7 @@ public void calculateResults (ArrayList<DataIssueTemplate> displayIssueData, int
             list_resultFormat.add(obj_resultFormat); 
             
             
-//	    System.out.println(obj_resultFormat.totalValue + "--"+ obj_resultFormat.distance+"--"+obj_resultFormat.prpftrRatio+"--"+obj_resultFormat.prpbugRatio+"--"+obj_resultFormat.prpimpRatio);
+	    System.out.println(obj_resultFormat.totalValue + "--"+ obj_resultFormat.distance+"--"+obj_resultFormat.prpftrRatio+"--"+obj_resultFormat.prpbugRatio+"--"+obj_resultFormat.prpimpRatio);
 
 
 	}

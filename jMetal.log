@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-09-10T12:55:58</date>
-  <millis>1505069758925</millis>
-  <sequence>1</sequence>
+  <date>2017-09-11T05:21:40</date>
+  <millis>1505128900791</millis>
+  <sequence>0</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.JMetalLogger</class>
@@ -13,9 +13,9 @@
   <message>Loggers configured with null</message>
 </record>
 <record>
-  <date>2017-09-10T12:55:58</date>
-  <millis>1505069758929</millis>
-  <sequence>2</sequence>
+  <date>2017-09-11T05:21:40</date>
+  <millis>1505128900806</millis>
+  <sequence>1</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
@@ -24,9 +24,9 @@
   <message>ExecuteAlgorithms: Preparing output directory</message>
 </record>
 <record>
-  <date>2017-09-10T12:55:58</date>
-  <millis>1505069758935</millis>
-  <sequence>3</sequence>
+  <date>2017-09-11T05:21:40</date>
+  <millis>1505128900822</millis>
+  <sequence>2</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
@@ -35,42 +35,720 @@
   <message> Running algorithm: NSGAIIc, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIc/Planning/FUN0.tsv</message>
 </record>
 <record>
-  <date>2017-09-10T12:55:58</date>
-  <millis>1505069758936</millis>
+  <date>2017-09-11T05:21:40</date>
+  <millis>1505128900822</millis>
+  <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>28</thread>
+  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-11T05:21:40</date>
+  <millis>1505128900822</millis>
+  <sequence>5</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>30</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-09-11T05:21:40</date>
+  <millis>1505128900822</millis>
   <sequence>4</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
   <method>runAlgorithm</method>
   <thread>27</thread>
-  <message> Running algorithm: NSGAIId, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIId/Planning/FUN0.tsv</message>
-</record>
-<record>
-  <date>2017-09-10T12:55:58</date>
-  <millis>1505069758937</millis>
-  <sequence>6</sequence>
-  <logger>org.uma.jmetal.util.JMetalLogger</logger>
-  <level>INFO</level>
-  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
-  <method>runAlgorithm</method>
-  <thread>28</thread>
-  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
-</record>
-<record>
-  <date>2017-09-10T12:55:58</date>
-  <millis>1505069758937</millis>
-  <sequence>5</sequence>
-  <logger>org.uma.jmetal.util.JMetalLogger</logger>
-  <level>INFO</level>
-  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
-  <method>runAlgorithm</method>
-  <thread>26</thread>
   <message> Running algorithm: NSGAIIb, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIb/Planning/FUN0.tsv</message>
 </record>
 <record>
-  <date>2017-09-10T12:56:08</date>
-  <millis>1505069768015</millis>
+  <date>2017-09-11T05:21:43</date>
+  <millis>1505128903166</millis>
+  <sequence>6</sequence>
+  <logger>guiImport.importJDialog</logger>
+  <level>SEVERE</level>
+  <class>homeBackend.homePlanner</class>
+  <method>storePlanInDB</method>
+  <thread>14</thread>
+  <exception>
+    <message>java.lang.ArrayIndexOutOfBoundsException: 6</message>
+    <frame>
+      <class>org.sqlite.core.CorePreparedStatement</class>
+      <method>batch</method>
+      <line>121</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>setString</method>
+      <line>421</line>
+    </frame>
+    <frame>
+      <class>homeBackend.homePlanner</class>
+      <method>storePlanInDB</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>homeBackend.homePlanner</class>
+      <method>runPlanner</method>
+      <line>78</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel</class>
+      <method>jButton1ActionPerformed</method>
+      <line>469</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel</class>
+      <method>access$000</method>
+      <line>29</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel$1</class>
+      <method>actionPerformed</method>
+      <line>115</line>
+    </frame>
+    <frame>
+      <class>javax.swing.AbstractButton</class>
+      <method>fireActionPerformed</method>
+      <line>2022</line>
+    </frame>
+    <frame>
+      <class>javax.swing.AbstractButton$Handler</class>
+      <method>actionPerformed</method>
+      <line>2348</line>
+    </frame>
+    <frame>
+      <class>javax.swing.DefaultButtonModel</class>
+      <method>fireActionPerformed</method>
+      <line>402</line>
+    </frame>
+    <frame>
+      <class>javax.swing.DefaultButtonModel</class>
+      <method>setPressed</method>
+      <line>259</line>
+    </frame>
+    <frame>
+      <class>javax.swing.plaf.basic.BasicButtonListener</class>
+      <method>mouseReleased</method>
+      <line>252</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>processMouseEvent</method>
+      <line>6533</line>
+    </frame>
+    <frame>
+      <class>javax.swing.JComponent</class>
+      <method>processMouseEvent</method>
+      <line>3324</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>processEvent</method>
+      <line>6298</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>processEvent</method>
+      <line>2236</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEventImpl</method>
+      <line>4889</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>dispatchEventImpl</method>
+      <line>2294</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEvent</method>
+      <line>4711</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>retargetMouseEvent</method>
+      <line>4888</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>processMouseEvent</method>
+      <line>4525</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>4466</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>dispatchEventImpl</method>
+      <line>2280</line>
+    </frame>
+    <frame>
+      <class>java.awt.Window</class>
+      <method>dispatchEventImpl</method>
+      <line>2746</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEvent</method>
+      <line>4711</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>dispatchEventImpl</method>
+      <line>758</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>access$500</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$3</class>
+      <method>run</method>
+      <line>709</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$3</class>
+      <method>run</method>
+      <line>703</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>90</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$4</class>
+      <method>run</method>
+      <line>731</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$4</class>
+      <method>run</method>
+      <line>729</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>dispatchEvent</method>
+      <line>728</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpOneEventForFilters</method>
+      <line>201</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEventsForFilter</method>
+      <line>116</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEventsForHierarchy</method>
+      <line>105</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEvents</method>
+      <line>101</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEvents</method>
+      <line>93</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>run</method>
+      <line>82</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2017-09-11T05:21:43</date>
+  <millis>1505128903166</millis>
   <sequence>7</sequence>
+  <logger>guiImport.importJDialog</logger>
+  <level>SEVERE</level>
+  <class>homeBackend.homePlanner</class>
+  <method>storePlanInDB</method>
+  <thread>14</thread>
+  <exception>
+    <message>java.lang.ArrayIndexOutOfBoundsException: 6</message>
+    <frame>
+      <class>org.sqlite.core.CorePreparedStatement</class>
+      <method>batch</method>
+      <line>121</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>setString</method>
+      <line>421</line>
+    </frame>
+    <frame>
+      <class>homeBackend.homePlanner</class>
+      <method>storePlanInDB</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>homeBackend.homePlanner</class>
+      <method>runPlanner</method>
+      <line>79</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel</class>
+      <method>jButton1ActionPerformed</method>
+      <line>469</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel</class>
+      <method>access$000</method>
+      <line>29</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel$1</class>
+      <method>actionPerformed</method>
+      <line>115</line>
+    </frame>
+    <frame>
+      <class>javax.swing.AbstractButton</class>
+      <method>fireActionPerformed</method>
+      <line>2022</line>
+    </frame>
+    <frame>
+      <class>javax.swing.AbstractButton$Handler</class>
+      <method>actionPerformed</method>
+      <line>2348</line>
+    </frame>
+    <frame>
+      <class>javax.swing.DefaultButtonModel</class>
+      <method>fireActionPerformed</method>
+      <line>402</line>
+    </frame>
+    <frame>
+      <class>javax.swing.DefaultButtonModel</class>
+      <method>setPressed</method>
+      <line>259</line>
+    </frame>
+    <frame>
+      <class>javax.swing.plaf.basic.BasicButtonListener</class>
+      <method>mouseReleased</method>
+      <line>252</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>processMouseEvent</method>
+      <line>6533</line>
+    </frame>
+    <frame>
+      <class>javax.swing.JComponent</class>
+      <method>processMouseEvent</method>
+      <line>3324</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>processEvent</method>
+      <line>6298</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>processEvent</method>
+      <line>2236</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEventImpl</method>
+      <line>4889</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>dispatchEventImpl</method>
+      <line>2294</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEvent</method>
+      <line>4711</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>retargetMouseEvent</method>
+      <line>4888</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>processMouseEvent</method>
+      <line>4525</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>4466</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>dispatchEventImpl</method>
+      <line>2280</line>
+    </frame>
+    <frame>
+      <class>java.awt.Window</class>
+      <method>dispatchEventImpl</method>
+      <line>2746</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEvent</method>
+      <line>4711</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>dispatchEventImpl</method>
+      <line>758</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>access$500</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$3</class>
+      <method>run</method>
+      <line>709</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$3</class>
+      <method>run</method>
+      <line>703</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>90</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$4</class>
+      <method>run</method>
+      <line>731</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$4</class>
+      <method>run</method>
+      <line>729</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>dispatchEvent</method>
+      <line>728</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpOneEventForFilters</method>
+      <line>201</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEventsForFilter</method>
+      <line>116</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEventsForHierarchy</method>
+      <line>105</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEvents</method>
+      <line>101</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEvents</method>
+      <line>93</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>run</method>
+      <line>82</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2017-09-11T05:21:43</date>
+  <millis>1505128903166</millis>
+  <sequence>8</sequence>
+  <logger>guiImport.importJDialog</logger>
+  <level>SEVERE</level>
+  <class>homeBackend.homePlanner</class>
+  <method>storePlanInDB</method>
+  <thread>14</thread>
+  <exception>
+    <message>java.lang.ArrayIndexOutOfBoundsException: 6</message>
+    <frame>
+      <class>org.sqlite.core.CorePreparedStatement</class>
+      <method>batch</method>
+      <line>121</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>setString</method>
+      <line>421</line>
+    </frame>
+    <frame>
+      <class>homeBackend.homePlanner</class>
+      <method>storePlanInDB</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>homeBackend.homePlanner</class>
+      <method>runPlanner</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel</class>
+      <method>jButton1ActionPerformed</method>
+      <line>469</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel</class>
+      <method>access$000</method>
+      <line>29</line>
+    </frame>
+    <frame>
+      <class>gui.Planner.plannerJPanel$1</class>
+      <method>actionPerformed</method>
+      <line>115</line>
+    </frame>
+    <frame>
+      <class>javax.swing.AbstractButton</class>
+      <method>fireActionPerformed</method>
+      <line>2022</line>
+    </frame>
+    <frame>
+      <class>javax.swing.AbstractButton$Handler</class>
+      <method>actionPerformed</method>
+      <line>2348</line>
+    </frame>
+    <frame>
+      <class>javax.swing.DefaultButtonModel</class>
+      <method>fireActionPerformed</method>
+      <line>402</line>
+    </frame>
+    <frame>
+      <class>javax.swing.DefaultButtonModel</class>
+      <method>setPressed</method>
+      <line>259</line>
+    </frame>
+    <frame>
+      <class>javax.swing.plaf.basic.BasicButtonListener</class>
+      <method>mouseReleased</method>
+      <line>252</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>processMouseEvent</method>
+      <line>6533</line>
+    </frame>
+    <frame>
+      <class>javax.swing.JComponent</class>
+      <method>processMouseEvent</method>
+      <line>3324</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>processEvent</method>
+      <line>6298</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>processEvent</method>
+      <line>2236</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEventImpl</method>
+      <line>4889</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>dispatchEventImpl</method>
+      <line>2294</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEvent</method>
+      <line>4711</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>retargetMouseEvent</method>
+      <line>4888</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>processMouseEvent</method>
+      <line>4525</line>
+    </frame>
+    <frame>
+      <class>java.awt.LightweightDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>4466</line>
+    </frame>
+    <frame>
+      <class>java.awt.Container</class>
+      <method>dispatchEventImpl</method>
+      <line>2280</line>
+    </frame>
+    <frame>
+      <class>java.awt.Window</class>
+      <method>dispatchEventImpl</method>
+      <line>2746</line>
+    </frame>
+    <frame>
+      <class>java.awt.Component</class>
+      <method>dispatchEvent</method>
+      <line>4711</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>dispatchEventImpl</method>
+      <line>758</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>access$500</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$3</class>
+      <method>run</method>
+      <line>709</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$3</class>
+      <method>run</method>
+      <line>703</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>90</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$4</class>
+      <method>run</method>
+      <line>731</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue$4</class>
+      <method>run</method>
+      <line>729</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+    </frame>
+    <frame>
+      <class>java.security.ProtectionDomain$JavaSecurityAccessImpl</class>
+      <method>doIntersectionPrivilege</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>dispatchEvent</method>
+      <line>728</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpOneEventForFilters</method>
+      <line>201</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEventsForFilter</method>
+      <line>116</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEventsForHierarchy</method>
+      <line>105</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEvents</method>
+      <line>101</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>pumpEvents</method>
+      <line>93</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventDispatchThread</class>
+      <method>run</method>
+      <line>82</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2017-09-11T05:21:43</date>
+  <millis>1505128903166</millis>
+  <sequence>9</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -81,22 +759,22 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display1ExcelData</method>
-      <line>228</line>
+      <line>525</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>219</line>
+      <line>511</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>access$000</method>
-      <line>28</line>
+      <line>29</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel$1</class>
       <method>actionPerformed</method>
-      <line>68</line>
+      <line>115</line>
     </frame>
     <frame>
       <class>javax.swing.AbstractButton</class>
@@ -279,9 +957,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-09-10T12:56:08</date>
-  <millis>1505069768024</millis>
-  <sequence>8</sequence>
+  <date>2017-09-11T05:21:43</date>
+  <millis>1505128903181</millis>
+  <sequence>10</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -292,22 +970,22 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display2ExcelData</method>
-      <line>240</line>
+      <line>538</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>220</line>
+      <line>512</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>access$000</method>
-      <line>28</line>
+      <line>29</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel$1</class>
       <method>actionPerformed</method>
-      <line>68</line>
+      <line>115</line>
     </frame>
     <frame>
       <class>javax.swing.AbstractButton</class>
@@ -490,9 +1168,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-09-10T12:56:08</date>
-  <millis>1505069768033</millis>
-  <sequence>9</sequence>
+  <date>2017-09-11T05:21:43</date>
+  <millis>1505128903181</millis>
+  <sequence>11</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -503,22 +1181,22 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display3ExcelData</method>
-      <line>252</line>
+      <line>551</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>221</line>
+      <line>513</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>access$000</method>
-      <line>28</line>
+      <line>29</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel$1</class>
       <method>actionPerformed</method>
-      <line>68</line>
+      <line>115</line>
     </frame>
     <frame>
       <class>javax.swing.AbstractButton</class>

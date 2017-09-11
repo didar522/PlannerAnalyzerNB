@@ -81,10 +81,10 @@ public class mainRunning {
 		homePlanner obj_homePlanner;
 		dataReleaseDates();
 		
-		releaseStart=obj_ReleaseInfoCollection.getReleaseDate(2);
-		releaseEnd=obj_ReleaseInfoCollection.getReleaseDate(3);
+		releaseStart=obj_ReleaseInfoCollection.getReleaseDate(3);
+		releaseEnd=obj_ReleaseInfoCollection.getReleaseDate(6);
 		
-		obj_homePlanner = new homePlanner(releaseStart, releaseEnd, 4, allIssueData, 15000, 20, 30, 50); 
+		obj_homePlanner = new homePlanner(releaseStart, releaseEnd, 4, allIssueData, 150000, 50, 30, 20); 
 		list_resultPlanner = obj_homePlanner.runPlanner();
 	}
 	
