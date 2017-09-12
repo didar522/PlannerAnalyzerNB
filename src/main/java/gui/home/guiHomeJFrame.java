@@ -7,6 +7,8 @@ package gui.home;
 
 import dataTemplates.DataIssueTemplate;
 import gui.Planner.plannerJPanel;
+import gui.analyzer.analyzerJpanel;
+import gui.replanner.replannerJPanel;
 import guiImport.importJDialog;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ public class guiHomeJFrame extends javax.swing.JFrame {
      */
     public guiHomeJFrame() {
         initComponents();
+        backgroundJpanel obj_backgroundJpanel = new backgroundJpanel(); 
+        mainjScrollPane1.setViewportView(obj_backgroundJpanel);
     }
 
     /**
@@ -44,10 +48,14 @@ public class guiHomeJFrame extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        AnalyzerjMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PlannerAnalyzer");
         setName("homeFrame"); // NOI18N
+
+        mainjScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout mainjPanelLayout = new javax.swing.GroupLayout(mainjPanel);
         mainjPanel.setLayout(mainjPanelLayout);
@@ -60,7 +68,9 @@ public class guiHomeJFrame extends javax.swing.JFrame {
             .addComponent(mainjScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
+
+        jMenu1.setText("Project");
 
         menuItemImport.setText("Import (Ctrl+I)");
         menuItemImport.addActionListener(new java.awt.event.ActionListener() {
@@ -80,15 +90,31 @@ public class guiHomeJFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("View");
 
-        jMenuItem2.setText("Planned Mode");
+        jMenuItem2.setText("Planning view");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
         jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setText("Replanning view");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        AnalyzerjMenuItem4.setText("Analyzer view");
+        AnalyzerjMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnalyzerjMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(AnalyzerjMenuItem4);
 
         jMenuBar1.add(jMenu2);
 
@@ -131,6 +157,21 @@ public class guiHomeJFrame extends javax.swing.JFrame {
         plannerJPanel obj_plannerJPanel = new plannerJPanel(allIssueData); 
         mainjScrollPane1.setViewportView(obj_plannerJPanel);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        allIssueData = obj_importJDialog.getAllIssueData ();
+        replannerJPanel obj_replannerJPanel = new replannerJPanel(allIssueData); 
+        mainjScrollPane1.setViewportView(obj_replannerJPanel);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void AnalyzerjMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnalyzerjMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        allIssueData = obj_importJDialog.getAllIssueData ();
+        analyzerJpanel obj_analyzerJpanel = new analyzerJpanel(allIssueData); 
+        mainjScrollPane1.setViewportView(obj_analyzerJpanel);
+        
+    }//GEN-LAST:event_AnalyzerjMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,7 +223,7 @@ public class guiHomeJFrame extends javax.swing.JFrame {
                 }
                 guiHomeJFrame mainFrame = new guiHomeJFrame(); 
                 mainFrame.setVisible(true);
-//                mainFrame.setExtendedState(mainFrame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+                mainFrame.setExtendedState(mainFrame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
 
             }
@@ -192,11 +233,13 @@ public class guiHomeJFrame extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AnalyzerjMenuItem4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel mainjPanel;
     private javax.swing.JScrollPane mainjScrollPane1;
     private javax.swing.JMenuItem menuItemImport;

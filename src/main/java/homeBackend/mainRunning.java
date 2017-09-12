@@ -52,10 +52,10 @@ public class mainRunning {
 		ReadingExcelsheet (allIssueData,intStartingRowofData,strFilePath,strFileName,strSheetName); 
 		
 //		System.out.println(allIssueData.get(3).getStrKey());
-//		daysForReplan =2; 
+		daysForReplan =2; 
 //		
-//		runningAnalyzer (daysForReplan); 
-		runningPlanner ();
+		runningAnalyzer (daysForReplan); 
+//		runningPlanner ();
 
                 
 		
@@ -148,7 +148,6 @@ public class mainRunning {
 		
 		System.out.println(
 				"releasenum1,"+
-				"releasenum2,"+
 				"iterator.daysForReplan,"+
 				"iterator.totalValue,"+
 				"iterator.totalActualValue,"+

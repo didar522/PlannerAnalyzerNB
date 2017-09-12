@@ -38,7 +38,7 @@ public class importJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         loadButton.setEnabled(false);
-        importSuccessJLabel.setText("Saving the dataset in DB may take upto five minutes to upload");
+        importSuccessJLabel.setText("Uploading in database may take upto five minutes to complete");
         
     }
 
@@ -73,7 +73,7 @@ public class importJDialog extends javax.swing.JDialog {
             }
         });
 
-        loadButton.setText("Load");
+        loadButton.setText("Load for this session");
         loadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadButtonActionPerformed(evt);
@@ -81,7 +81,6 @@ public class importJDialog extends javax.swing.JDialog {
         });
 
         importSuccessJLabel.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        importSuccessJLabel.setForeground(new java.awt.Color(0, 51, 255));
         importSuccessJLabel.setText("jLabel1");
 
         checkDatasetButton.setText("Save in DB");
@@ -98,16 +97,17 @@ public class importJDialog extends javax.swing.JDialog {
             .addGroup(importBrowseJPanelLayout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addGroup(importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(importSuccessJLabel)
                     .addGroup(importBrowseJPanelLayout.createSequentialGroup()
                         .addComponent(importJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(browseButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(loadButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkDatasetButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(loadButton))
+                    .addGroup(importBrowseJPanelLayout.createSequentialGroup()
+                        .addComponent(checkDatasetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(importSuccessJLabel)))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         importBrowseJPanelLayout.setVerticalGroup(
             importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,11 +116,12 @@ public class importJDialog extends javax.swing.JDialog {
                 .addGroup(importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(importJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(browseButton)
-                    .addComponent(loadButton)
+                    .addComponent(loadButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(importSuccessJLabel)
                     .addComponent(checkDatasetButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(importSuccessJLabel)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,7 +131,7 @@ public class importJDialog extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(importProjectDisplayjScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                    .addComponent(importProjectDisplayjScrollPane1)
                     .addComponent(importBrowseJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -139,8 +140,8 @@ public class importJDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(importBrowseJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(importProjectDisplayjScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(importProjectDisplayjScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -155,7 +156,7 @@ public class importJDialog extends javax.swing.JDialog {
           obj_mainRunning.tokenizeFilePath (fileAddress);
           obj_mainRunning.ReadingExcelsheet(allIssueData, 1, obj_mainRunning.strFilePath, obj_mainRunning.strFileName, obj_mainRunning.strFileName);
           
-          importSuccessJLabel.setText("Loaded records for this session"); 
+          importSuccessJLabel.setText("Data loaded Successfully (for current session only)"); 
           
           
     }//GEN-LAST:event_loadButtonActionPerformed
