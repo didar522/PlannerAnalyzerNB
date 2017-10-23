@@ -38,7 +38,7 @@ public class importJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         loadButton.setEnabled(false);
-        importSuccessJLabel.setText("Uploading in database may take upto five minutes to complete");
+        importSuccessJLabel.setText("(Loading for one session is faster. Uploading in DB may take longer)");
         
     }
 
@@ -83,7 +83,7 @@ public class importJDialog extends javax.swing.JDialog {
         importSuccessJLabel.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         importSuccessJLabel.setText("jLabel1");
 
-        checkDatasetButton.setText("Save in DB");
+        checkDatasetButton.setText("Upload in DB");
         checkDatasetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkDatasetButtonActionPerformed(evt);
@@ -95,19 +95,20 @@ public class importJDialog extends javax.swing.JDialog {
         importBrowseJPanelLayout.setHorizontalGroup(
             importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(importBrowseJPanelLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addContainerGap()
                 .addGroup(importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(importBrowseJPanelLayout.createSequentialGroup()
-                        .addComponent(importJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(importSuccessJLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(importBrowseJPanelLayout.createSequentialGroup()
+                        .addComponent(importJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(browseButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(loadButton))
-                    .addGroup(importBrowseJPanelLayout.createSequentialGroup()
-                        .addComponent(checkDatasetButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(importSuccessJLabel)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                        .addComponent(loadButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(checkDatasetButton)))
+                .addGap(25, 25, 25))
         );
         importBrowseJPanelLayout.setVerticalGroup(
             importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,12 +117,11 @@ public class importJDialog extends javax.swing.JDialog {
                 .addGroup(importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(importJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(browseButton)
-                    .addComponent(loadButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(importBrowseJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(importSuccessJLabel)
+                    .addComponent(loadButton)
                     .addComponent(checkDatasetButton))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(importSuccessJLabel)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,11 +138,11 @@ public class importJDialog extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(importBrowseJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(importProjectDisplayjScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(importProjectDisplayjScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -169,7 +169,7 @@ public class importJDialog extends javax.swing.JDialog {
                 String strQuery = "Insert into AllIssueData values (?,?,?,?,?,?);";
                 PreparedStatement preparedStatement = connection.prepareStatement(strQuery); 
 
-                for (int i=0;i<10;i++){
+                for (int i=0;i<15;i++){
 //                for (int i=0;i<allIssueData.size();i++){
                     
                     preparedStatement.setString(1, allIssueData.get(i).getStrKey());

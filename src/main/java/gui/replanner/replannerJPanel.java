@@ -12,9 +12,10 @@ import guiImport.importJDialog;
 import homeBackend.homePlanner;
 import static homeBackend.mainRunning.dataReleaseDates;
 import static homeBackend.mainRunning.list_resultPlanner;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -36,6 +37,9 @@ public class replannerJPanel extends javax.swing.JPanel {
         this.allIssueData = tmpallIssueData; 
         System.out.println("from the jpanel "+allIssueData.get(10).getStrKey());
         
+        jSplitPane3.setVisible(false);
+        jTableSolution1.setVisible(false);
+        
         infoSolution1Panel.setVisible(false);
         infoSolution2Panel.setVisible(false);
 //        infoSolution3Panel.setVisible(false);
@@ -47,6 +51,8 @@ public class replannerJPanel extends javax.swing.JPanel {
         jLabel12.setVisible(false);
         jLabel13.setVisible(false);
         jLabel14.setVisible(false);
+        
+        
         
 //        jLabel15.setVisible(false);
 //        jLabel16.setVisible(false);
@@ -68,7 +74,7 @@ public class replannerJPanel extends javax.swing.JPanel {
         leftPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jTextField4FullTimeRes = new javax.swing.JTextField();
-        jXDatePicker1replanDate = new org.jdesktop.swingx.JXDatePicker();
+        jXDatePicker1startDate = new org.jdesktop.swingx.JXDatePicker();
         jXDatePicker1endDate = new org.jdesktop.swingx.JXDatePicker();
         replanInterval = new javax.swing.JComboBox<>();
         jComboBox1ftrRatio = new javax.swing.JComboBox<>();
@@ -94,7 +100,8 @@ public class replannerJPanel extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jXDatePicker1startDate = new org.jdesktop.swingx.JXDatePicker();
+        clearDBBtn = new javax.swing.JButton();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jLabel23 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
@@ -108,6 +115,12 @@ public class replannerJPanel extends javax.swing.JPanel {
         compareTable1 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         comparisonTable2 = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jSplitPane4 = new javax.swing.JSplitPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        oldplanTable = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable2replan = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jSplitPane3 = new javax.swing.JSplitPane();
         infoSolution1Panel = new javax.swing.JPanel();
@@ -138,13 +151,13 @@ public class replannerJPanel extends javax.swing.JPanel {
         jComboBox3impRatio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" }));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Release start date");
+        jLabel1.setText("Replanning date");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Release end date");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Replan interval");
+        jLabel3.setText("Re plan interval");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Full-time resources");
@@ -184,9 +197,9 @@ public class replannerJPanel extends javax.swing.JPanel {
 
         jLabel17.setText("Allows to define changed status of a release");
 
-        jLabel18.setText("and identify how replanning change requests");
+        jLabel18.setText("and identify how replanning change request");
 
-        jLabel19.setText(" can benefit the release . ");
+        jLabel19.setText("can benefit the release.");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Allotment of available resources: ");
@@ -197,87 +210,98 @@ public class replannerJPanel extends javax.swing.JPanel {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel22.setText("Define the scope of the next release: ");
 
+        clearDBBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        clearDBBtn.setText("Clear Plans");
+        clearDBBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearDBBtnActionPerformed(evt);
+            }
+        });
+
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel23.setText("Replanning date");
+        jLabel23.setText("Release start date");
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
         leftPanelLayout.setHorizontalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
+                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(leftPanelLayout.createSequentialGroup()
+                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
+                                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel16))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField4FullTimeRes, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField1PartTimeRes, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
+                                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel23))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox3)
+                                    .addComponent(jCheckBox2)
+                                    .addComponent(jCheckBox1)
+                                    .addComponent(jXDatePicker1endDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBox3impRatio, 0, 123, Short.MAX_VALUE)
+                                    .addComponent(jComboBox2bugRatio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBox1ftrRatio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(replanInterval, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jXDatePicker1startDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(26, 26, 26))
+                    .addGroup(leftPanelLayout.createSequentialGroup()
+                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(leftPanelLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(clearDBBtn))
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel22))
+                        .addGap(0, 25, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel17)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19)
                     .addComponent(jLabel15))
-                .addContainerGap(50, Short.MAX_VALUE))
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel23))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jXDatePicker1startDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jXDatePicker1endDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox3impRatio, 0, 123, Short.MAX_VALUE)
-                            .addComponent(jComboBox2bugRatio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1ftrRatio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(replanInterval, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jXDatePicker1replanDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(26, 26, 26))
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(1, 180, Short.MAX_VALUE))
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(leftPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1PartTimeRes, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField4FullTimeRes, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(leftPanelLayout.createSequentialGroup()
-                                    .addGap(78, 78, 78)
-                                    .addComponent(jButton1))
-                                .addComponent(jLabel20)
-                                .addComponent(jLabel22)
-                                .addComponent(jLabel21)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGap(36, 36, 36))
         );
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXDatePicker1startDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jXDatePicker1replanDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jXDatePicker1endDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,7 +310,7 @@ public class replannerJPanel extends javax.swing.JPanel {
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(replanInterval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(23, 23, 23)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -296,7 +320,7 @@ public class replannerJPanel extends javax.swing.JPanel {
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jTextField1PartTimeRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel20)
                 .addGap(11, 11, 11)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,8 +346,10 @@ public class replannerJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jCheckBox3)
                 .addGap(12, 12, 12)
-                .addComponent(jButton1)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(clearDBBtn))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(leftPanel);
@@ -394,7 +420,43 @@ public class replannerJPanel extends javax.swing.JPanel {
 
         jScrollPane5.setViewportView(jSplitPane2);
 
-        jTabbedPane4.addTab("Comparison", jScrollPane5);
+        jTabbedPane4.addTab("Solution comparison", jScrollPane5);
+
+        jSplitPane4.setDividerLocation(450);
+
+        oldplanTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(oldplanTable);
+
+        jSplitPane4.setLeftComponent(jScrollPane6);
+
+        jTable2replan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(jTable2replan);
+
+        jSplitPane4.setRightComponent(jScrollPane7);
+
+        jScrollPane1.setViewportView(jSplitPane4);
+
+        jTabbedPane4.addTab("What if analysis", jScrollPane1);
 
         jSplitPane3.setDividerLocation(450);
 
@@ -457,7 +519,7 @@ public class replannerJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel14)
                     .addComponent(jLabel13)
                     .addComponent(jLabel12))
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(345, Short.MAX_VALUE))
         );
         infoSolution2PanelLayout.setVerticalGroup(
             infoSolution2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -492,7 +554,7 @@ public class replannerJPanel extends javax.swing.JPanel {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -523,7 +585,7 @@ public class replannerJPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        Date releaseStart = jXDatePicker1replanDate.getDate();
+        Date releaseStart = jXDatePicker1startDate.getDate();
         System.out.println(releaseStart.toString());
         Date releaseEnd = jXDatePicker1endDate.getDate(); 
         System.out.println(releaseStart.toString());
@@ -553,16 +615,18 @@ public class replannerJPanel extends javax.swing.JPanel {
                 
                 obj_homePlanner = new homePlanner(releaseStart, releaseEnd, intreplanInterval, allIssueData, capacity, featureRatio, bugRatio, impRatio);
         try {
-            list_resultPlanner = obj_homePlanner.runPlanner();
+            list_resultPlanner = obj_homePlanner.runPlanner(false);
         } catch (Exception ex) {
             System.out.println("gui.Planner.plannerJPanel.jButton1ActionPerformed()");
             Logger.getLogger(replannerJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        jSplitPane3.setVisible(true);
         infoSolution1Panel.setSize(250, 130);
         infoSolution1Panel.setVisible(true);
         infoSolution2Panel.setSize(250, 130);
         infoSolution2Panel.setVisible(true);
+        jTableSolution1.setVisible(true);
+        
 //        infoSolution3Panel.setVisible(true);
         
         jLabel9.setText("Total value: "+ Integer.toString(list_resultPlanner.get(0).totalValue));
@@ -572,7 +636,13 @@ public class replannerJPanel extends javax.swing.JPanel {
         jLabel11.setText("Effort ratio (ftr, Bug, Imp ): "+ Integer.toString((int)list_resultPlanner.get(0).prpftrRatio) + " "+Integer.toString((int)list_resultPlanner.get(0).prpbugRatio)+" "+Integer.toString((int)list_resultPlanner.get(0).prpimpRatio));
         jLabel11.setVisible(true);
         
-//        if (list_resultPlanner.size()>1){
+        String Query1 = "SELECT * FROM OfferedIssueData;";
+        display1ExcelData (Query1); 
+        String Query3 = "SELECT IssueKey, Summary, Offered FROM OfferedIssueData;";
+        display3ExcelData (Query3); 
+        display5ExcelData (Query3);
+        
+        if (list_resultPlanner.size()>1){
         
             jLabel12.setText("Total value: "+ Integer.toString(list_resultPlanner.get(1).totalValue));
             jLabel12.setVisible(true);
@@ -580,8 +650,15 @@ public class replannerJPanel extends javax.swing.JPanel {
             jLabel13.setVisible(true);
             jLabel14.setText("Effort ratio (ftr, Bug, Imp ): "+ Integer.toString((int)list_resultPlanner.get(1).prpftrRatio) + " "+Integer.toString((int)list_resultPlanner.get(1).prpbugRatio)+" "+Integer.toString((int)list_resultPlanner.get(1).prpimpRatio));
             jLabel14.setVisible(true);
-//        }
         
+            String Query2 = "SELECT * FROM OfferedIssueData1;";
+            display2ExcelData (Query2); 
+            String Query4 = "SELECT IssueKey, Summary, Offered FROM OfferedIssueData1;";
+            display4ExcelData (Query4); 
+        }
+        
+        String Query6 = "SELECT IssueKey, Summary, Offered FROM BUPOfferedIssueData;";
+        display6ExcelData (Query6);
 ////        if (list_resultPlanner.size()>2){
 //        
 //            jLabel15.setText("Total value: "+ Integer.toString(list_resultPlanner.get(2).totalValue));
@@ -594,19 +671,15 @@ public class replannerJPanel extends javax.swing.JPanel {
        
         
         
-        String Query1 = "SELECT * FROM OfferedIssueData WHERE Offered LIKE \"offered in 1\";";
-        String Query2 = "SELECT * FROM OfferedIssueData WHERE Offered LIKE \"offered in 2\";";
+        
+        
 //        String Query3 = "SELECT * FROM OfferedIssueData WHERE Offered LIKE \"offered in 3\";";
-        display1ExcelData (Query1); 
-        display2ExcelData (Query2); 
+        
+        
 //        display3ExcelData (Query3); 
 
-        String Query3 = "SELECT IssueKey, Summary, Offered FROM OfferedIssueData WHERE Offered LIKE \"offered in 1\";";
-        String Query4 = "SELECT IssueKey, Summary, Offered FROM OfferedIssueData WHERE Offered LIKE \"offered in 2\";";
         
-        display3ExcelData (Query3); 
-        display4ExcelData (Query4); 
-
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -614,10 +687,36 @@ public class replannerJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void clearDBBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearDBBtnActionPerformed
+        try {
+            // TODO add your handling code here:
+
+            Class.forName("org.sqlite.JDBC");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/BSQPLanner.DB.sqlite");//
+            
+            Statement statement = connection.createStatement();
+            ResultSet resultset = statement.executeQuery("DELETE FROM \"main\".\"OfferedIssueData\";");
+            
+            Statement statement1 = connection.createStatement();
+            ResultSet resultset1 = statement1.executeQuery("DELETE FROM \"main\".\"OfferedIssueData1\";");
+            
+            Statement statement2 = connection.createStatement();
+            ResultSet resultset2 = statement1.executeQuery("DELETE FROM \"main\".\"BUPOfferedIssueData\";");
+            
+            connection.close();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(replannerJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    
+    }//GEN-LAST:event_clearDBBtnActionPerformed
+
 public void display1ExcelData (String strQuery){
         try {    
             resultSet=obj_sqliteAllResults.getResults(strQuery, "DB/BSQPLanner.DB.sqlite");
-            
+            if (!resultSet.next() ) {
+                System.out.println("no data---------------------------------");
+            }
             jTableSolution1.setModel(DbUtils.resultSetToTableModel(resultSet));
             obj_sqliteAllResults.closeConnection();
             
@@ -666,6 +765,33 @@ public void display4ExcelData (String strQuery){
         }
     }
 
+public void display5ExcelData (String strQuery){
+        try {    
+            resultSet=obj_sqliteAllResults.getResults(strQuery, "DB/BSQPLanner.DB.sqlite");
+            
+            jTable2replan.setModel(DbUtils.resultSetToTableModel(resultSet));
+            obj_sqliteAllResults.closeConnection();
+            
+        } catch (Exception ex) {
+            System.out.println("gui.Planner.plannerJPanel.display2ExcelData()");
+            Logger.getLogger(importJDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+public void display6ExcelData (String strQuery){
+        try {    
+            resultSet=obj_sqliteAllResults.getResults(strQuery, "DB/BSQPLanner.DB.sqlite");
+            
+            oldplanTable.setModel(DbUtils.resultSetToTableModel(resultSet));
+            obj_sqliteAllResults.closeConnection();
+            
+        } catch (Exception ex) {
+            System.out.println("gui.Planner.plannerJPanel.display2ExcelData()");
+            Logger.getLogger(importJDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 //public void display3ExcelData (String strQuery){
 //        try {    
 //            resultSet=obj_sqliteAllResults.getResults(strQuery, "DB/BSQPLanner.DB.sqlite");
@@ -679,6 +805,7 @@ public void display4ExcelData (String strQuery){
 //        }
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clearDBBtn;
     private javax.swing.JTable compareTable1;
     private javax.swing.JTable comparisonTable2;
     private javax.swing.JPanel infoSolution1Panel;
@@ -715,22 +842,28 @@ public void display4ExcelData (String strQuery){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JSplitPane jSplitPane3;
+    private javax.swing.JSplitPane jSplitPane4;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTable jTable2replan;
     private javax.swing.JTable jTableSolution1;
     private javax.swing.JTable jTableSolution2;
     private javax.swing.JTextField jTextField1PartTimeRes;
     private javax.swing.JTextField jTextField4FullTimeRes;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1endDate;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1replanDate;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1startDate;
     private javax.swing.JPanel leftPanel;
+    private javax.swing.JTable oldplanTable;
     private javax.swing.JComboBox<String> replanInterval;
     private javax.swing.JScrollPane scrollpanecompare1;
     // End of variables declaration//GEN-END:variables

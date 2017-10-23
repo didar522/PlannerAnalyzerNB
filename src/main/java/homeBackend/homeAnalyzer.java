@@ -108,7 +108,9 @@ public resultTemplate calculateResults (){
 		double totalFtrTimeSpent = 0, totalBugTimeSpent = 0,totalImpTimeSpent = 0; 
 		
 		for (DataIssueTemplate iterator: offeredIssueData){
-			totalValue += iterator.getPriorityValue(); 
+			
+                    if (iterator.isOffered()==true){
+                        totalValue += iterator.getPriorityValue(); 
 			
 			if (iterator.getIssueTypeValue()==1){
 				totalFtrTimeSpent += iterator.getDefaultTimespent(); 
@@ -120,6 +122,7 @@ public resultTemplate calculateResults (){
 			else if(iterator.getIssueTypeValue()==1){
 				totalImpTimeSpent += iterator.getDefaultTimespent(); 
 			}
+                    }
 		}
 		
 		for (DataIssueTemplate iterator: obj_Filtering.listInClose){

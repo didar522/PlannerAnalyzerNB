@@ -51,7 +51,8 @@ public class relPlanning {
 	
 	public ArrayList<DataIssueTemplate> identifyOfferedforChoice (int choice){
 		for (int i=0;i<backlogIssueData.size();i++){
-			if (transfernonDominatedSolutions.get(choice).getVariableValueString(i).matches("1.0")){
+                    backlogIssueData.get(i).setOffered(false);
+                    if (transfernonDominatedSolutions.get(choice).getVariableValueString(i).matches("1.0")){
 				backlogIssueData.get(i).setOffered(true);
 			}
 		}

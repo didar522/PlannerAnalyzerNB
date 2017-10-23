@@ -1,6 +1,5 @@
 package homeBackend;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,10 +10,9 @@ import guiImport.importJDialog;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import optimizer.NSGAIIMultiRunner;
-import optimizer.problemDefinition;
 import planning.relPlanning;
 import planning.relRePlanning;
 
@@ -61,23 +59,40 @@ public class homePlanner {
 		backlogIssueData= obj_Filtering.filterIssuesEarlyOpen();
 	}
 	
-	public ArrayList<resultTemplate> runPlanner () throws Exception{
+	public ArrayList<resultTemplate> runPlanner (boolean isplanning) throws Exception{
 		dataPreprocess (); 
 		obj_relPlanning = new relPlanning(); 
 		obj_relPlanning.performRelPlanning(backlogIssueData, dblAvailableCapacity, bugRatio, ftrRatio, impRatio); 
 		
 		System.out.println("Size of the solution +++++"+ obj_relPlanning.transfernonDominatedSolutions.size());
-		proposedIssueData1=obj_relPlanning.identifyOfferedforChoice(0); 
-		proposedIssueData2=obj_relPlanning.identifyOfferedforChoice(obj_relPlanning.transfernonDominatedSolutions.size()-1); 
-		proposedIssueData3=obj_relPlanning.identifyOfferedforChoice((int)(obj_relPlanning.transfernonDominatedSolutions.size()-1)/2); 
+		
+                
+		
+                    
+              		
+//                proposedIssueData3=obj_relPlanning.identifyOfferedforChoice((int)(obj_relPlanning.transfernonDominatedSolutions.size()-1)/2); 
 		
                 try{
                     Class.forName("org.sqlite.JDBC");
                     connection = DriverManager.getConnection("jdbc:sqlite:DB/BSQPLanner.DB.sqlite");//
-
-                    storePlanInDB (proposedIssueData1,1); 
-                    storePlanInDB (proposedIssueData2,2);
-                    storePlanInDB (proposedIssueData3,3);
+                   
+                    proposedIssueData1=obj_relPlanning.identifyOfferedforChoice(0); 
+                    String strQuery0 = "Insert into OfferedIssueData values (?,?,?,?,?,?);";
+                    storePlanInDB (proposedIssueData1,1,strQuery0); 
+                    calculateResults (proposedIssueData1,1);
+                    
+                    if (isplanning=true){
+                        String BUPstrQuery0 = "Insert into BUPOfferedIssueData values (?,?,?,?,?,?);";
+                        storePlanInDB (proposedIssueData1,1,BUPstrQuery0); 
+                    }
+                    
+                    if (obj_relPlanning.transfernonDominatedSolutions.size()>1){
+                        proposedIssueData2=obj_relPlanning.identifyOfferedforChoice(1); 
+                        String strQuery1 = "Insert into OfferedIssueData1 values (?,?,?,?,?,?);";
+                        storePlanInDB (proposedIssueData2,2,strQuery1);
+                        calculateResults (proposedIssueData2,2);
+                    }
+//                    storePlanInDB (proposedIssueData3,3);
 
                     connection.close();
                 }
@@ -85,9 +100,9 @@ public class homePlanner {
                     System.out.println("homeBackend.homePlanner.runPlanner()");
                     Logger.getLogger(importJDialog.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                calculateResults (proposedIssueData1,1);
-		calculateResults (proposedIssueData2,2);
-		calculateResults (proposedIssueData3,3);
+                
+		
+//		calculateResults (proposedIssueData3,3);
                 
                 return list_resultFormat; 
 	}
@@ -97,9 +112,10 @@ public class homePlanner {
 	
         
         
-        public void storePlanInDB (ArrayList<DataIssueTemplate> planIssueData, int solutionNum){
+        public void storePlanInDB (ArrayList<DataIssueTemplate> planIssueData, int solutionNum, String tmpStrQuery){
             try {
-                String strQuery = "Insert into OfferedIssueData values (?,?,?,?,?,?);";
+//                String strQuery = "Insert into OfferedIssueData values (?,?,?,?,?,?);";
+                String strQuery=tmpStrQuery;
                 PreparedStatement preparedStatement = connection.prepareStatement(strQuery); 
 
                 for (int i=0;i<planIssueData.size();i++){
@@ -112,7 +128,7 @@ public class homePlanner {
                     preparedStatement.setString(5, planIssueData.get(i).getStrResolution());
                     
                     if (planIssueData.get(i).isOffered()==true) {
-                        preparedStatement.setString(6, "offered in "+solutionNum);
+                        preparedStatement.setString(6, "offered");
                     }
                     else {
                         preparedStatement.setString(6, "");
