@@ -111,6 +111,10 @@ Experiment<IntegerSolution, List<IntegerSolution>> experiment =
         .build();
 
 new ExecuteAlgorithms<>(experiment).run();
+
+
+
+
 obj_GenerateReferenceParetoSetAndFrontFromDoubleSolutions_Didar = new GenerateReferenceParetoSetAndFrontFromDoubleSolutions_Didar(experiment);
 obj_GenerateReferenceParetoSetAndFrontFromDoubleSolutions_Didar.run(); 
 //new ComputeQualityIndicators<>(experiment).run() ;
@@ -146,6 +150,8 @@ for (int i = 0; i < problemList.size(); i++) {
             .setSwarmSize(100)
             .setSolutionListEvaluator(new SequentialSolutionListEvaluator<IntegerSolution>())
             .build();
+            
+        
         algorithms.add(new ExperimentAlgorithm<>(algorithm, "SMPSO251017", problemList.get(i).getTag()));
 }
 

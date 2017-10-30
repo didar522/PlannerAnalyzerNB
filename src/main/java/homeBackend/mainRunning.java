@@ -89,7 +89,7 @@ public class mainRunning {
 	}
 	
 	
-	public static void runningAnalyzer (int daysForReplan) throws IOException{
+	public static void runningAnalyzer (int daysForReplan) throws Exception{
 		
 		homeAnalyzer obj_homeAnalyzer;   
 		dataReleaseDates();

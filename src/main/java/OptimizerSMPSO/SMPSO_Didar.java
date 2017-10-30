@@ -49,7 +49,6 @@ public class SMPSO_Didar extends AbstractParticleSwarmOptimization<IntegerSoluti
   
   private GenericSolutionAttribute<IntegerSolution, IntegerSolution> localBest;
   private double[][] speed;
-
   private JMetalRandom randomGenerator;
 
   private BoundedArchive<IntegerSolution> leaders;
@@ -95,6 +94,7 @@ public class SMPSO_Didar extends AbstractParticleSwarmOptimization<IntegerSoluti
     dominanceComparator = new DominanceComparator<IntegerSolution>();
     localBest = new GenericSolutionAttribute<IntegerSolution, IntegerSolution>();
     speed = new double[swarmSize][problem.getNumberOfVariables()];
+    
 
     deltaMax = new double[problem.getNumberOfVariables()];
     deltaMin = new double[problem.getNumberOfVariables()];
@@ -142,7 +142,10 @@ public class SMPSO_Didar extends AbstractParticleSwarmOptimization<IntegerSoluti
 
   @Override protected void initializeLeader(List<IntegerSolution> swarm) {
     for (IntegerSolution particle : swarm) {
-      leaders.add(particle);
+//        System.out.println("OptimizerSMPSO.SMPSO_Didar.initializeLeader()"+particle.getObjective(0));
+//        System.out.println("OptimizerSMPSO.SMPSO_Didar.initializeLeader()---"+particle.getObjective(1));
+        
+        leaders.add(particle);
     }
   }
 
@@ -150,6 +153,7 @@ public class SMPSO_Didar extends AbstractParticleSwarmOptimization<IntegerSoluti
     for (int i = 0; i < swarm.size(); i++) {
       for (int j = 0; j < problem.getNumberOfVariables(); j++) {
         speed[i][j] = 0.0;
+        
       }
     }
   }
@@ -228,14 +232,12 @@ public class SMPSO_Didar extends AbstractParticleSwarmOptimization<IntegerSoluti
       wmin = weightMin;
 
       for (int var = 0; var < particle.getNumberOfVariables(); var++) {
-        
         speed[i][var]= velocityConstriction(constrictionCoefficient(c1, c2) * (
                    (c2 * r2 * (bestGlobal.getVariableValue(var) - particle.getVariableValue(var))) +
                            inertiaWeight(iterations, maxIterations, wmax, wmin) * speed[i][var] +
                            (c1 * r1 * (bestParticle.getVariableValue(var) - particle.getVariableValue(var)))),
-            deltaMax, deltaMin, var);
-           
-//           
+                                deltaMax, deltaMin, var);
+ 
       }
     }
   }
@@ -245,14 +247,14 @@ public class SMPSO_Didar extends AbstractParticleSwarmOptimization<IntegerSoluti
       IntegerSolution particle = swarm.get(i);
       for (int j = 0; j < particle.getNumberOfVariables(); j++) {
 //        particle.setVariableValue(j, particle.getVariableValue(j) + speed[i][j]);
-        particle.setVariableValue(j, particle.getVariableValue(j) + 1);
-        if (particle.getVariableValue(j) < getLowerBound) {
-          particle.setVariableValue(j, getLowerBound);
-          speed[i][j] = speed[i][j] * changeVelocity1;
+        double randomValueCompare = deltaMin[j] + (int)(Math.random() * (1+deltaMax[j])); 
+        double particleUpdatedValue = particle.getVariableValue(j) + speed[i][j]; 
+        
+        if (randomValueCompare<particleUpdatedValue){
+            particle.setVariableValue(j, 0);
         }
-        if (particle.getVariableValue(j) > getUpperBound) {
-          particle.setVariableValue(j, getUpperBound);
-          speed[i][j] = speed[i][j] * changeVelocity2;
+        else {
+            particle.setVariableValue(j, 1);
         }
       }
     }

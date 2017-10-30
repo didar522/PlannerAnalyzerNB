@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-10-25T17:15:13</date>
-  <millis>1508973313579</millis>
+  <date>2017-10-29T15:58:55</date>
+  <millis>1509314335218</millis>
   <sequence>0</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Loggers configured with null</message>
 </record>
 <record>
-  <date>2017-10-25T17:15:13</date>
-  <millis>1508973313595</millis>
+  <date>2017-10-29T15:58:55</date>
+  <millis>1509314335226</millis>
   <sequence>1</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -24,20 +24,42 @@
   <message>ExecuteAlgorithms: Preparing output directory</message>
 </record>
 <record>
-  <date>2017-10-25T17:15:13</date>
-  <millis>1508973313595</millis>
+  <date>2017-10-29T15:58:55</date>
+  <millis>1509314335234</millis>
   <sequence>2</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
   <method>runAlgorithm</method>
   <thread>14</thread>
-  <message> Running algorithm: SMPSO251017, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//SMPSOStudy2/data/SMPSO251017/Planning/FUN0.tsv</message>
+  <message>Creating C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning</message>
 </record>
 <record>
-  <date>2017-10-25T17:16:20</date>
-  <millis>1508973380589</millis>
+  <date>2017-10-29T15:58:55</date>
+  <millis>1509314335235</millis>
   <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
+</record>
+<record>
+  <date>2017-10-29T16:04:10</date>
+  <millis>1509314650398</millis>
+  <sequence>4</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>optimizer.GenerateReferenceParetoSetAndFrontFromDoubleSolutions_Didar</class>
+  <method>createOutputDirectory</method>
+  <thread>14</thread>
+  <message>Creating C:/Users/Didar/Desktop/N4//referenceFronts. Status = true</message>
+</record>
+<record>
+  <date>2017-10-29T16:04:41</date>
+  <millis>1509314681000</millis>
+  <sequence>5</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -48,12 +70,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display1ExcelData</method>
-      <line>668</line>
+      <line>677</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>589</line>
+      <line>594</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -246,9 +268,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-10-25T17:16:20</date>
-  <millis>1508973380605</millis>
-  <sequence>4</sequence>
+  <date>2017-10-29T16:04:41</date>
+  <millis>1509314681004</millis>
+  <sequence>6</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -259,12 +281,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display3ExcelData</method>
-      <line>694</line>
+      <line>703</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>591</line>
+      <line>596</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -457,9 +479,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-10-25T17:16:20</date>
-  <millis>1508973380605</millis>
-  <sequence>5</sequence>
+  <date>2017-10-29T16:04:41</date>
+  <millis>1509314681008</millis>
+  <sequence>7</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -470,12 +492,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display2ExcelData</method>
-      <line>681</line>
+      <line>690</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>604</line>
+      <line>609</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -668,9 +690,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-10-25T17:16:21</date>
-  <millis>1508973381058</millis>
-  <sequence>6</sequence>
+  <date>2017-10-29T16:04:41</date>
+  <millis>1509314681467</millis>
+  <sequence>8</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -681,12 +703,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display4ExcelData</method>
-      <line>707</line>
+      <line>716</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>606</line>
+      <line>611</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -878,4 +900,3 @@
     </frame>
   </exception>
 </record>
-</log>

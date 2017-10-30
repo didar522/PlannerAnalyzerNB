@@ -278,7 +278,7 @@ public class analyzerJpanel extends javax.swing.JPanel {
 //        int daysForReplan =2;
         try { 
             runningAnalyzer (replanIntervalStart, replanIntervalEnd,gapInIntervalAnalysis, releaseStart, releaseEnd );
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(analyzerJpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -377,7 +377,7 @@ public class analyzerJpanel extends javax.swing.JPanel {
 	}
     
     
-    public void runningAnalyzer (int replanIntervalStart, int replanIntervalEnd, int gapInIntervalAnalysis, Date releaseStart, Date releaseEnd ) throws IOException{
+    public void runningAnalyzer (int replanIntervalStart, int replanIntervalEnd, int gapInIntervalAnalysis, Date releaseStart, Date releaseEnd ) throws Exception{
 		
 		homeAnalyzer obj_homeAnalyzer;   
 		dataReleaseDates();

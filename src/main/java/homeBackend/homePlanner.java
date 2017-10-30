@@ -41,7 +41,7 @@ public class homePlanner {
 	double dblAvailableCapacity=0;
 	int bugRatio=0, ftrRatio=0, impRatio=0; 
 	
-	public homePlanner (Date tmpreleaseStart, Date tmpreleaseEnd, int tmpdaysForReplan, ArrayList<DataIssueTemplate> tmp_allIssueData, double tmp_dblAvailableCapacity, int tmp_bugRatio, int tmp_ftrRatio, int tmp_impRatio){
+	public homePlanner (Date tmpreleaseStart, Date tmpreleaseEnd, int tmpdaysForReplan, ArrayList<DataIssueTemplate> tmp_allIssueData, double tmp_dblAvailableCapacity, int tmp_ftrRatio, int tmp_bugRatio, int tmp_impRatio){
 		this.releaseStart=tmpreleaseStart;
 		this.releaseEnd=tmpreleaseEnd;
 		this.daysForReplan = tmpdaysForReplan;
@@ -50,8 +50,8 @@ public class homePlanner {
 		dblAvailableCapacity= tmp_dblAvailableCapacity; 
 		
 		bugRatio = tmp_bugRatio;
-		ftrRatio=tmp_bugRatio;
-		impRatio=tmp_bugRatio; 
+		ftrRatio=tmp_ftrRatio;
+		impRatio=tmp_impRatio; 
 	}
 	
 	public void dataPreprocess (){

@@ -136,6 +136,11 @@ public class plannerJPanel extends javax.swing.JPanel {
         replanInterval.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "4", "6", "8", "10", "12", "14", "16" }));
 
         jComboBox1ftrRatio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" }));
+        jComboBox1ftrRatio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ftrRatioActionPerformed(evt);
+            }
+        });
 
         jComboBox2bugRatio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" }));
 
@@ -657,6 +662,10 @@ public class plannerJPanel extends javax.swing.JPanel {
         }
                     
     }//GEN-LAST:event_clearDBBtnActionPerformed
+
+    private void jComboBox1ftrRatioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ftrRatioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ftrRatioActionPerformed
 
 public void display1ExcelData (String strQuery){
         try {    

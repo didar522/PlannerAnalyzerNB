@@ -142,34 +142,34 @@ for (int i = 0; i < problemList.size(); i++) {
   algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIIa", problemList.get(i).getTag()));
 }
 
-for (int i = 0; i < problemList.size(); i++) {
-  Algorithm<List<IntegerSolution>> algorithm = new NSGAIIBuilder<>(
-          problemList.get(i).getProblem(),
-          new IntegerSBXCrossover(1.0, 20.0),
-          new IntegerPolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
-          .setMaxEvaluations(25000)
-          .setPopulationSize(100)
-          .build();
-  algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIIb", problemList.get(i).getTag()));
-}
+//for (int i = 0; i < problemList.size(); i++) {
+//  Algorithm<List<IntegerSolution>> algorithm = new NSGAIIBuilder<>(
+//          problemList.get(i).getProblem(),
+//          new IntegerSBXCrossover(1.0, 20.0),
+//          new IntegerPolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
+//          .setMaxEvaluations(25000)
+//          .setPopulationSize(100)
+//          .build();
+//  algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIIb", problemList.get(i).getTag()));
+//}
 
-for (int i = 0; i < problemList.size(); i++) {
-  Algorithm<List<IntegerSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(1.0, 40.0),
-          new IntegerPolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 40.0))
-          .setMaxEvaluations(25000)
-          .setPopulationSize(100)
-          .build();
-  algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIIc", problemList.get(i).getTag()));
-}
-
-for (int i = 0; i < problemList.size(); i++) {
-  Algorithm<List<IntegerSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(1.0, 80.0),
-          new IntegerPolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 80.0))
-          .setMaxEvaluations(25000)
-          .setPopulationSize(100)
-          .build();
-  algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIId", problemList.get(i).getTag()));
-}
+//for (int i = 0; i < problemList.size(); i++) {
+//  Algorithm<List<IntegerSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(1.0, 40.0),
+//          new IntegerPolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 40.0))
+//          .setMaxEvaluations(25000)
+//          .setPopulationSize(100)
+//          .build();
+//  algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIIc", problemList.get(i).getTag()));
+//}
+//
+//for (int i = 0; i < problemList.size(); i++) {
+//  Algorithm<List<IntegerSolution>> algorithm = new NSGAIIBuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(1.0, 80.0),
+//          new IntegerPolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 80.0))
+//          .setMaxEvaluations(25000)
+//          .setPopulationSize(100)
+//          .build();
+//  algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIId", problemList.get(i).getTag()));
+//}
 
 return algorithms;
 }

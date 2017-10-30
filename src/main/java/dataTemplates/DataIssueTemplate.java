@@ -17,6 +17,7 @@ public class DataIssueTemplate {
 	private Date dateResolved; 
 	
 	private double timespent=0;
+        public double estimatedWork=0; 
 	private int priorityValue; 
 	private int issueTypeValue; 
 	
@@ -40,6 +41,7 @@ public class DataIssueTemplate {
 	private double dblNumberofFiles; 
 	private double dblAdditionChurn;
 	private double dblDeletionChurn; 
+        
 	
 	private String strProcessedText; 
 	
@@ -286,12 +288,15 @@ public class DataIssueTemplate {
 	}
 	
 	public double getTimespent(Date diffDate) {
-		if (dateResolved==null){
-			timespent=0;
-		}
-		else  {
-			timespent=(getDateDiff(diffDate, dateResolved,TimeUnit.HOURS));
-		}
+//		if (dateResolved==null){
+//			timespent=0;
+//		}
+//		else  {
+//			timespent=getDateDiff(diffDate, dateResolved,TimeUnit.DAYS)*8; 
+//                        
+//		}
+
+                timespent = estimatedWork/60; 
 		
 		return timespent; 
 		
@@ -299,12 +304,14 @@ public class DataIssueTemplate {
 	
 	
 	public double getDefaultTimespent() {
-		if (dateResolved==null || dateUpdated==null){
-			timespent=0;
-		}
-		else  {
-			timespent=(getDateDiff(dateUpdated, dateResolved,TimeUnit.HOURS));
-		}
+//		if (dateResolved==null || dateUpdated==null){
+//			timespent=0;
+//		}
+//		else  {
+//			timespent=(getDateDiff(dateCreated, dateResolved,TimeUnit.DAYS)*8);
+//		}
+
+                timespent = estimatedWork/60; 
 		
 		return timespent; 
 		
@@ -344,6 +351,20 @@ public class DataIssueTemplate {
 	    long diffInMillies = date2.getTime() - date1.getTime();
 	    return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
 	}
+
+    /**
+     * @return the estimatedWork
+     */
+    public double getEstimatedWork() {
+        return estimatedWork;
+    }
+
+    /**
+     * @param estimatedWork the estimatedWork to set
+     */
+    public void setEstimatedWork(double estimatedWork) {
+        this.estimatedWork = estimatedWork;
+    }
 	
 	
 	

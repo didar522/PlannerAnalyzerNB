@@ -67,8 +67,8 @@ public class SMPSOBuilder_Didar implements AlgorithmBuilder<SMPSO_Didar> {
     c2Min = 1.5;
     weightMax = 0.1;
     weightMin = 0.1;
-    changeVelocity1 = -1;
-    changeVelocity2 = -1;
+    changeVelocity1 = 0.5;
+    changeVelocity2 = -0.5;
 
     mutationOperator = new IntegerPolynomialMutation(1.0/problem.getNumberOfVariables(), 20.0) ;
     evaluator = new SequentialSolutionListEvaluator<IntegerSolution>() ;

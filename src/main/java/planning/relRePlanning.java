@@ -83,19 +83,20 @@ public class relRePlanning {
 	
 	public void simulateDevelopment (){
 		problemDefinition obj_problemDefinition = new problemDefinition (planningIssues, spenteffort, bugRatio, ftrRatio, impRatio); 
-//		NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
-//		
-//		try{
-//			transfernonDominatedSolutions=obj_NSGAIIMultiRunner.NSGARunner();
-//		}catch (Exception ex){
-//		}
-                
-                SMPSOMultiRunner obj_SMPSOMultiRunner = new SMPSOMultiRunner (obj_problemDefinition); 
+		
+                NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
 		
 		try{
-			transfernonDominatedSolutions=obj_SMPSOMultiRunner.SMPSORunner();
+			transfernonDominatedSolutions=obj_NSGAIIMultiRunner.NSGARunner();
 		}catch (Exception ex){
 		}
+                
+//                SMPSOMultiRunner obj_SMPSOMultiRunner = new SMPSOMultiRunner (obj_problemDefinition); 
+//		
+//		try{
+//			transfernonDominatedSolutions=obj_SMPSOMultiRunner.SMPSORunner();
+//		}catch (Exception ex){
+//		}
 	}
 	
 	public void modifyingIssueList (){

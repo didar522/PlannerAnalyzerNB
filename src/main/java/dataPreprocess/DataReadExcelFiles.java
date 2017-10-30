@@ -167,8 +167,7 @@ public class DataReadExcelFiles {
 		    		if (row.getCell(columnIndex.get("Reporter"))!=null) tempIssueData.setStrReporter(row.getCell(columnIndex.get("Reporter")).getStringCellValue());
 		    		if (row.getCell(columnIndex.get("Creator"))!=null) tempIssueData.setStrCreator(row.getCell(columnIndex.get("Creator")).getStringCellValue());
 		    		if (row.getCell(columnIndex.get("Component/s"))!=null) tempIssueData.setStrComponent(row.getCell(columnIndex.get("Component/s")).getStringCellValue());
-		    		
-		    		
+		    		if (row.getCell(columnIndex.get("Î£ Original Estimate"))!=null) tempIssueData.setEstimatedWork(row.getCell(columnIndex.get("Î£ Original Estimate")).getNumericCellValue());
 		    		
 		    		//Checking requeired
 		    		if (row.getCell(columnIndex.get("Description"))!=null){

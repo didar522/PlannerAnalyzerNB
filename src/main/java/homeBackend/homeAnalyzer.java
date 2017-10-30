@@ -52,7 +52,7 @@ public class homeAnalyzer {
 	    
 	}
 	
-	public resultTemplate runPlanner () throws IOException{
+	public resultTemplate runPlanner () throws Exception{
 		list_replanning.add(releaseStart); 
 		
 		dataPreprocess (); 

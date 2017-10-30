@@ -1,6 +1,7 @@
 package planning;
 
 import OptimizerSMPSO.SMPSOMultiRunner;
+import OptimizerSMPSO.SMPSOSingleRunner;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,6 +14,7 @@ import dataPreprocess.Preprocessing;
 import dataTemplates.DataIssueTemplate;
 import optimizer.NSGAIIMultiRunner;
 import optimizer.problemDefinition;
+import org.uma.jmetal.solution.IntegerSolution;
 
 public class relPlanning {
 	
@@ -24,19 +26,23 @@ public class relPlanning {
 	
 	ArrayList<DataIssueTemplate> backlogIssueData = new ArrayList<DataIssueTemplate>();
 	public List<DoubleSolution> transfernonDominatedSolutions;
+//	public List<IntegerSolution> transfernonDominatedSolutions;
 	
-	
-	public void performRelPlanning (ArrayList<DataIssueTemplate> tmp_backlogIssueData, double tmp_dblAvailableCapacity, int bugRatio, int ftrRatio, int impRatio) throws IOException{
+	public void performRelPlanning (ArrayList<DataIssueTemplate> tmp_backlogIssueData, double tmp_dblAvailableCapacity, int bugRatio, int ftrRatio, int impRatio) throws Exception {
 		this.backlogIssueData = tmp_backlogIssueData; 
 		this.dblAvailableCapacity = tmp_dblAvailableCapacity; 
 		
 		obj_problemDefinition = new problemDefinition (backlogIssueData, dblAvailableCapacity, bugRatio, ftrRatio, impRatio); 
-//		NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
-//		transfernonDominatedSolutions=obj_NSGAIIMultiRunner.NSGARunner();
+
+
+		NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
+		transfernonDominatedSolutions=obj_NSGAIIMultiRunner.NSGARunner();
                 
+//              SMPSOMultiRunner obj_SMPSOMultiRunner = new SMPSOMultiRunner (obj_problemDefinition); 
+//		transfernonDominatedSolutions=obj_SMPSOMultiRunner.SMPSORunner();
                 
-                SMPSOMultiRunner obj_SMPSOMultiRunner = new SMPSOMultiRunner (obj_problemDefinition); 
-		transfernonDominatedSolutions=obj_SMPSOMultiRunner.SMPSORunner();
+//              SMPSOSingleRunner obj_SMPSOSingleRunner = new SMPSOSingleRunner (obj_problemDefinition); 
+//		transfernonDominatedSolutions=obj_SMPSOSingleRunner.SMPSORunner();
 		
 	}
 	
