@@ -99,6 +99,16 @@ public class SMPSOSingleRunner extends AbstractAlgorithmRunner {
     JMetalLogger.logger.info("Total execution time: " + computingTime + "ms");
 
     printFinalSolutionSet(population);
+    
+    for (int i=0; i<population.size();i++){
+        System.out.print("solution : ");
+        for (int j=0;j<population.get(i).getNumberOfVariables();j++){
+             System.out.print(population.get(i).getVariableValueString(j)+" ");
+        }
+        System.out.println(); 
+        System.out.println("Obj1,2 : "+population.get(i).getObjective(0)+" , "+population.get(i).getObjective(1));
+//        System.out.println("Obj1,2 : "+population.get(i).getObjective(0)+" , "+population.get(i).getObjective(0));
+    }
 //    if (!referenceParetoFront.equals("")) {
 //      printQualityIndicators(population, referenceParetoFront) ;
 //    }

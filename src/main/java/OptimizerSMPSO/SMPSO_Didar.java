@@ -251,10 +251,10 @@ public class SMPSO_Didar extends AbstractParticleSwarmOptimization<IntegerSoluti
         double particleUpdatedValue = particle.getVariableValue(j) + speed[i][j]; 
         
         if (randomValueCompare<particleUpdatedValue){
-            particle.setVariableValue(j, 0);
+            particle.setVariableValue(j, 1);
         }
         else {
-            particle.setVariableValue(j, 1);
+            particle.setVariableValue(j, 0);
         }
       }
     }

@@ -49,7 +49,11 @@ public class relPlanning {
 	public ArrayList<DataIssueTemplate> identifyRandOffered (){
 		Random rand = new Random();
 		int solutionChoice = rand.nextInt(transfernonDominatedSolutions.size());
-
+                
+                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%planning.relPlanning.identifyRandOffered()"+ solutionChoice);
+                   
+                
+                
 		for (int i=0;i<backlogIssueData.size();i++){
 			if (transfernonDominatedSolutions.get(solutionChoice).getVariableValueString(i).matches("1.0")){
 				backlogIssueData.get(i).setOffered(true);

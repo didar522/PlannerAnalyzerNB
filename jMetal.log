@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-10-29T15:58:55</date>
-  <millis>1509314335218</millis>
+  <date>2017-11-22T12:38:40</date>
+  <millis>1511379520649</millis>
   <sequence>0</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Loggers configured with null</message>
 </record>
 <record>
-  <date>2017-10-29T15:58:55</date>
-  <millis>1509314335226</millis>
+  <date>2017-11-22T12:38:40</date>
+  <millis>1511379520711</millis>
   <sequence>1</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -24,20 +24,9 @@
   <message>ExecuteAlgorithms: Preparing output directory</message>
 </record>
 <record>
-  <date>2017-10-29T15:58:55</date>
-  <millis>1509314335234</millis>
+  <date>2017-11-22T12:38:40</date>
+  <millis>1511379520758</millis>
   <sequence>2</sequence>
-  <logger>org.uma.jmetal.util.JMetalLogger</logger>
-  <level>INFO</level>
-  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
-  <method>runAlgorithm</method>
-  <thread>14</thread>
-  <message>Creating C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning</message>
-</record>
-<record>
-  <date>2017-10-29T15:58:55</date>
-  <millis>1509314335235</millis>
-  <sequence>3</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
@@ -46,20 +35,9 @@
   <message> Running algorithm: NSGAIIa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//NSGAIIStudy2/data/NSGAIIa/Planning/FUN0.tsv</message>
 </record>
 <record>
-  <date>2017-10-29T16:04:10</date>
-  <millis>1509314650398</millis>
-  <sequence>4</sequence>
-  <logger>org.uma.jmetal.util.JMetalLogger</logger>
-  <level>INFO</level>
-  <class>optimizer.GenerateReferenceParetoSetAndFrontFromDoubleSolutions_Didar</class>
-  <method>createOutputDirectory</method>
-  <thread>14</thread>
-  <message>Creating C:/Users/Didar/Desktop/N4//referenceFronts. Status = true</message>
-</record>
-<record>
-  <date>2017-10-29T16:04:41</date>
-  <millis>1509314681000</millis>
-  <sequence>5</sequence>
+  <date>2017-11-22T12:40:49</date>
+  <millis>1511379649386</millis>
+  <sequence>3</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -268,9 +246,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-10-29T16:04:41</date>
-  <millis>1509314681004</millis>
-  <sequence>6</sequence>
+  <date>2017-11-22T12:40:49</date>
+  <millis>1511379649401</millis>
+  <sequence>4</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -479,9 +457,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-10-29T16:04:41</date>
-  <millis>1509314681008</millis>
-  <sequence>7</sequence>
+  <date>2017-11-22T12:40:49</date>
+  <millis>1511379649401</millis>
+  <sequence>5</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -690,9 +668,9 @@
   </exception>
 </record>
 <record>
-  <date>2017-10-29T16:04:41</date>
-  <millis>1509314681467</millis>
-  <sequence>8</sequence>
+  <date>2017-11-22T12:40:49</date>
+  <millis>1511379649401</millis>
+  <sequence>6</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -900,3 +878,4 @@
     </frame>
   </exception>
 </record>
+</log>

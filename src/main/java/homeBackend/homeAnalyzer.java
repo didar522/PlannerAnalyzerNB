@@ -42,9 +42,7 @@ public class homeAnalyzer {
 	public void dataPreprocess (){
 		obj_Filtering=new Preprocessing(allIssueData, releaseStart, releaseEnd);
 		backlogIssueData= obj_Filtering.filterIssuesEarlyOpen();
-		obj_Filtering.filterIssueInClose(); 
-		
-		dblAvailableCapacity = obj_Filtering.totalCapacity;
+		dblAvailableCapacity = obj_Filtering.filterIssueInClose();;
 		
 		bugRatio=(int) (obj_Filtering.bugTimeSpent*100/(obj_Filtering.ftrTimeSpent+obj_Filtering.impTimeSpent+obj_Filtering.bugTimeSpent));
 	    ftrRatio=(int) (obj_Filtering.ftrTimeSpent*100/(obj_Filtering.ftrTimeSpent+obj_Filtering.impTimeSpent+obj_Filtering.bugTimeSpent));
@@ -93,7 +91,7 @@ public class homeAnalyzer {
 			obj_relPlanning.performRelPlanning(backlogIssueData, dblAvailableCapacity, bugRatio, ftrRatio, impRatio); 
 			proposedIssueData=obj_relPlanning.identifyRandOffered();
 		
-			
+			lastPLanning = list_replanning.get(list_replanning.size()-1);
 			newReplanning = new Date(list_replanning.get(list_replanning.size()-1).getTime()+daysForReplan*24*60*60*1000);
 		}
 		

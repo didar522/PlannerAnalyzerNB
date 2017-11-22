@@ -151,6 +151,7 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
         }
         
         totalValue = totalValue - (xValues[var]*al_infoStructure.get(var).getValue())-(xValues[var]*pmPreference);
+//        totalValue = totalValue - (xValues[var]*al_infoStructure.get(var).getValue());
     }
     fx[0]=totalValue/totalCapacityCompare; 
 //    fx[0]=totalValue; 
@@ -197,6 +198,7 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
 
 
     System.out.println("Population,"+fx[0]+","+fx[1]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
+//    System.out.println("Population,"+fx[0]+","+fx[0]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
 //    System.out.println("Population,"+fx[0]+","+totalValue+","+totalCost+","+totalCapacity);
 
     solution.setObjective(0, fx[0]);

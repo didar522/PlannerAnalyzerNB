@@ -1,6 +1,7 @@
 package planning;
 
 import OptimizerSMPSO.SMPSOMultiRunner;
+import OptimizerSMPSO.SMPSOSingleRunner;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.uma.jmetal.solution.DoubleSolution;
 import dataTemplates.DataIssueTemplate;
 import optimizer.NSGAIIMultiRunner;
 import optimizer.problemDefinition;
+import org.uma.jmetal.solution.IntegerSolution;
 
 public class relRePlanning {
 	
@@ -19,6 +21,7 @@ public class relRePlanning {
 	public ArrayList<DataIssueTemplate> planningIssues=new ArrayList<DataIssueTemplate> (); 
 	
 	List<DoubleSolution> transfernonDominatedSolutions;
+//        List<IntegerSolution> transfernonDominatedSolutions;
 	
 	public double spenteffort=0.0; 
 	int bugRatio=0;
@@ -65,7 +68,7 @@ public class relRePlanning {
 						tmpDiffDate=iterator.getDateUpdated();
 					}
 					
-					spenteffort += iterator.getTimespent(tmpDiffDate); 
+					spenteffort += iterator.getDefaultTimespent(); 
 				}
 			}
 		}
@@ -85,9 +88,11 @@ public class relRePlanning {
 		problemDefinition obj_problemDefinition = new problemDefinition (planningIssues, spenteffort, bugRatio, ftrRatio, impRatio); 
 		
                 NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
+//                SMPSOSingleRunner obj_SMPSOSingleRunner = new SMPSOSingleRunner (obj_problemDefinition);
 		
 		try{
 			transfernonDominatedSolutions=obj_NSGAIIMultiRunner.NSGARunner();
+//                        transfernonDominatedSolutions=obj_SMPSOSingleRunner.SMPSORunner();
 		}catch (Exception ex){
 		}
                 

@@ -47,11 +47,11 @@ public class Preprocessing {
 					if(iterator.getDateResolved().after(releaseStart) && iterator.getDateResolved().before(releaseEnd)){
 						listInClose.add(iterator); 
 						Date tmpDiffDate =null; 
-						if (iterator.getDateUpdated().before(releaseStart)){
+						if (iterator.getDateCreated().before(releaseStart)){
 							tmpDiffDate = releaseStart; 
 						}
 						else {
-							tmpDiffDate=iterator.getDateUpdated();
+							tmpDiffDate=iterator.getDateCreated();
 						}
 						totalCapacity += iterator.getTimespent(tmpDiffDate); 
 												
@@ -68,7 +68,7 @@ public class Preprocessing {
 					}
 				}
 	    }
-		
+		          System.out.println("------------------------------------------dataPreprocess.Preprocessing.filterIssueInClose()"+ totalCapacity);
 		return totalCapacity; 
 	}
 	
