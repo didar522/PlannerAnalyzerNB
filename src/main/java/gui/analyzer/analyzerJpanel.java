@@ -421,20 +421,20 @@ public class analyzerJpanel extends javax.swing.JPanel {
 		System.setOut(out);
 		
 		System.out.println(
-				"releasenum1,"+
-				"iterator.daysForReplan,"+
-				"iterator.totalValue,"+
-				"iterator.totalActualValue,"+
-				 "iterator.actftrRatio,"+
-				 "iterator.actbugRatio,"+
-				 "iterator.actimpRatio,"+
-				 "iterator.totalFtrTimeSpent,"+
-				 "iterator.totalBugTimeSpent,"+
-				 "iterator.totalImpTimeSpent,"+
-				 "iterator.prpftrRatio,"+
-				 "iterator.prpbugRatio,"+
-				 "iterator.prpimpRatio,"+
-				 "iterator.distance");
+				"Release_Num,"+
+				"DaysAfterReplanDone,"+
+				"ValueAchieved,"+
+				"RetrospectiveActualValue,"+
+				 "ActFtrRatio,"+
+				 "ActBugRatio,"+
+				 "ActImpRatio,"+
+				 "ProposedFtrTimeSpent,"+
+				 "ProposedBugTimeSpent,"+
+				 "ProposedImpTimeSpent,"+
+				 "ProposedFtrRatio,"+
+				 "ProposedBugRatio,"+
+				 "ProposedImpRatio,"+
+				 "ProposedDistance");
 		
 		for (resultTemplate iterator: tmplist_resultFormat){
 

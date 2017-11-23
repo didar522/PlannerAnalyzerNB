@@ -1,5 +1,5 @@
 package homeBackend;
-
+// 199 and 99 problem def print has to be on
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,8 +45,8 @@ public class homeAnalyzer {
 		dblAvailableCapacity = obj_Filtering.filterIssueInClose();;
 		
 		bugRatio=(int) (obj_Filtering.bugTimeSpent*100/(obj_Filtering.ftrTimeSpent+obj_Filtering.impTimeSpent+obj_Filtering.bugTimeSpent));
-	    ftrRatio=(int) (obj_Filtering.ftrTimeSpent*100/(obj_Filtering.ftrTimeSpent+obj_Filtering.impTimeSpent+obj_Filtering.bugTimeSpent));
-	    impRatio=(int)(obj_Filtering.impTimeSpent*100/(obj_Filtering.ftrTimeSpent+obj_Filtering.impTimeSpent+obj_Filtering.bugTimeSpent));
+                ftrRatio=(int) (obj_Filtering.ftrTimeSpent*100/(obj_Filtering.ftrTimeSpent+obj_Filtering.impTimeSpent+obj_Filtering.bugTimeSpent));
+                impRatio=(int)(obj_Filtering.impTimeSpent*100/(obj_Filtering.ftrTimeSpent+obj_Filtering.impTimeSpent+obj_Filtering.bugTimeSpent));
 	    
 	}
 	
@@ -66,6 +66,9 @@ public class homeAnalyzer {
 		while (newReplanning.before(releaseEnd)){
 			
 			list_replanning.add(newReplanning); 
+                        
+                        System.out.println("=============== while loop start--------"); 
+                        System.out.println("=============== replanning for date" + newReplanning +" under tmp days for replan "+ daysForReplan);
 			
 			backlogIssueData=null; 
 			obj_relPlanning = null; 
@@ -73,7 +76,10 @@ public class homeAnalyzer {
 			obj_relRePlanning = new relRePlanning (allIssueData, proposedIssueData, lastPLanning, newReplanning, bugRatio, ftrRatio, impRatio);
 			backlogIssueData=obj_relRePlanning.preprocessRePlanning ();
 			
-			double dblUsedCapacity =0; 
+			
+                        System.out.println("============= simulatio done, replanning for size before filter" + backlogIssueData.size()); 
+                        
+                        double dblUsedCapacity =0; 
 			for (int i=0;i<backlogIssueData.size();i++){
 				if (backlogIssueData.get(i).isOffered()==true){
 					offeredIssueData.add(backlogIssueData.get(i)); 
@@ -85,7 +91,7 @@ public class homeAnalyzer {
 			
 			dblAvailableCapacity = dblAvailableCapacity-dblUsedCapacity; 
 			
-			 
+			System.out.println("============= simulatio done, replanning for size after filter " + backlogIssueData.size()+" with avl cap"+ dblAvailableCapacity + "on date"+ newReplanning +" under tmp days for replan "+ daysForReplan);
 			
 			obj_relPlanning = new relPlanning(); 
 			obj_relPlanning.performRelPlanning(backlogIssueData, dblAvailableCapacity, bugRatio, ftrRatio, impRatio); 
@@ -102,6 +108,8 @@ public class homeAnalyzer {
 	
 public resultTemplate calculateResults (){
 		
+    
+                System.out.println("performing calculate results");
 		int totalValue = 0, totalActualValue=0; 
 		double totalFtrTimeSpent = 0, totalBugTimeSpent = 0,totalImpTimeSpent = 0; 
 		

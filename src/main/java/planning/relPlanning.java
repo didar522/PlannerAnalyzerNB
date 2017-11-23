@@ -48,9 +48,10 @@ public class relPlanning {
 	
 	public ArrayList<DataIssueTemplate> identifyRandOffered (){
 		Random rand = new Random();
-		int solutionChoice = rand.nextInt(transfernonDominatedSolutions.size());
+//		int solutionChoice = rand.nextInt(transfernonDominatedSolutions.size());
+                int solutionChoice=0 + (int)(Math.random() * (transfernonDominatedSolutions.size()-1)); 
                 
-                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%planning.relPlanning.identifyRandOffered()"+ solutionChoice);
+                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%% Original rel planning sol choice "+ solutionChoice +" from nondom sol size "+ transfernonDominatedSolutions.size());
                    
                 
                 

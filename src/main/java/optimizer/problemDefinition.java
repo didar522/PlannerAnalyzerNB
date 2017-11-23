@@ -95,7 +95,9 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     
     for (int i = 0; i < solution.getNumberOfVariables(); i++) {
     	xValues[i] = solution.getVariableValue(i) ;
-    	System.out.print(xValues[i]+"-");
+    	
+//        This has to be on
+//        System.out.print(xValues[i]+"-");
     }
     
     double totalFtrCost=0;
@@ -196,8 +198,13 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
 //      System.out.println("Evaluating correction fx0 "+fx[1]);
 //      System.out.println("Evaluating correction  fx1 "+fx[1]);
 
+//    This need to be on 
+//    System.out.println("Population,"+fx[0]+","+fx[1]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
 
-    System.out.println("Population,"+fx[0]+","+fx[1]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
+
+
+
+
 //    System.out.println("Population,"+fx[0]+","+fx[0]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
 //    System.out.println("Population,"+fx[0]+","+totalValue+","+totalCost+","+totalCapacity);
 

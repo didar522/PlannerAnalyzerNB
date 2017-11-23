@@ -60,13 +60,13 @@ public class relRePlanning {
 		for (DataIssueTemplate iterator: allIssueData){
 			if (iterator.getDateResolved()!=null){
 				if(iterator.getDateResolved().after(lastPlanning) && iterator.getDateResolved().before(newReplan)){
-					Date tmpDiffDate =null; 
-					if (iterator.getDateUpdated().before(lastPlanning)){
-						tmpDiffDate = lastPlanning; 
-					}
-					else {
-						tmpDiffDate=iterator.getDateUpdated();
-					}
+//					Date tmpDiffDate =null; 
+//					if (iterator.getDateUpdated().before(lastPlanning)){
+//						tmpDiffDate = lastPlanning; 
+//					}
+//					else {
+//						tmpDiffDate=iterator.getDateUpdated();
+//					}
 					
 					spenteffort += iterator.getDefaultTimespent(); 
 				}
@@ -85,7 +85,9 @@ public class relRePlanning {
 	}
 	
 	public void simulateDevelopment (){
-		problemDefinition obj_problemDefinition = new problemDefinition (planningIssues, spenteffort, bugRatio, ftrRatio, impRatio); 
+		System.out.println("@@@@@@@@@@@ simulating dev start for size "+ planningIssues.size()+" spent effort "+ spenteffort + "-"+ bugRatio + "-"+ftrRatio + "-"+impRatio);
+            
+                problemDefinition obj_problemDefinition = new problemDefinition (planningIssues, spenteffort, bugRatio, ftrRatio, impRatio); 
 		
                 NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
 //                SMPSOSingleRunner obj_SMPSOSingleRunner = new SMPSOSingleRunner (obj_problemDefinition);
@@ -106,8 +108,11 @@ public class relRePlanning {
 	
 	public void modifyingIssueList (){
 		Random rand = new Random();
-		int solutionChoice = rand.nextInt(transfernonDominatedSolutions.size());
+//		int solutionChoice = rand.nextInt(transfernonDominatedSolutions.size());
+                int solutionChoice=0 + (int)(Math.random() * (transfernonDominatedSolutions.size()-1)); 
 		
+                System.out.println("@@@@@@@@@@@ simulating dev solution choice " + solutionChoice + " made from nondom sol size "+ transfernonDominatedSolutions.size());
+                
 		for (int i=0;i<planningIssues.size();i++){
 			if (transfernonDominatedSolutions.get(solutionChoice).getVariableValueString(i).matches("1.0")){
 				
