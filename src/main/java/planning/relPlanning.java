@@ -41,8 +41,8 @@ public class relPlanning {
 //              SMPSOMultiRunner obj_SMPSOMultiRunner = new SMPSOMultiRunner (obj_problemDefinition); 
 //		transfernonDominatedSolutions=obj_SMPSOMultiRunner.SMPSORunner();
                 
-//              SMPSOSingleRunner obj_SMPSOSingleRunner = new SMPSOSingleRunner (obj_problemDefinition); 
-//		transfernonDominatedSolutions=obj_SMPSOSingleRunner.SMPSORunner();
+//                SMPSOSingleRunner obj_SMPSOSingleRunner = new SMPSOSingleRunner (obj_problemDefinition); 
+//                transfernonDominatedSolutions=obj_SMPSOSingleRunner.SMPSORunner();
 		
 	}
 	
