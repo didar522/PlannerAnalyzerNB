@@ -87,7 +87,7 @@ public class relRePlanning {
 	public void simulateDevelopment (){
 		System.out.println("@@@@@@@@@@@ simulating dev start for size "+ planningIssues.size()+" spent effort "+ spenteffort + "-"+ bugRatio + "-"+ftrRatio + "-"+impRatio);
             
-                problemDefinition obj_problemDefinition = new problemDefinition (planningIssues, spenteffort, bugRatio, ftrRatio, impRatio); 
+                problemDefinition obj_problemDefinition = new problemDefinition (planningIssues, spenteffort); 
 		
                 NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
 //                SMPSOSingleRunner obj_SMPSOSingleRunner = new SMPSOSingleRunner (obj_problemDefinition);

@@ -32,14 +32,14 @@ public class relPlanning {
 		this.backlogIssueData = tmp_backlogIssueData; 
 		this.dblAvailableCapacity = tmp_dblAvailableCapacity; 
 		
-		obj_problemDefinition = new problemDefinition (backlogIssueData, dblAvailableCapacity, bugRatio, ftrRatio, impRatio); 
+		obj_problemDefinition = new problemDefinition (backlogIssueData, dblAvailableCapacity); 
 
 
-		NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
-		transfernonDominatedSolutions=obj_NSGAIIMultiRunner.NSGARunner();
+//		NSGAIIMultiRunner obj_NSGAIIMultiRunner = new NSGAIIMultiRunner (obj_problemDefinition); 
+//		transfernonDominatedSolutions=obj_NSGAIIMultiRunner.NSGARunner();
                 
-//              SMPSOMultiRunner obj_SMPSOMultiRunner = new SMPSOMultiRunner (obj_problemDefinition); 
-//		transfernonDominatedSolutions=obj_SMPSOMultiRunner.SMPSORunner();
+                SMPSOMultiRunner obj_SMPSOMultiRunner = new SMPSOMultiRunner (obj_problemDefinition); 
+		transfernonDominatedSolutions=obj_SMPSOMultiRunner.SMPSORunner();
                 
 //                SMPSOSingleRunner obj_SMPSOSingleRunner = new SMPSOSingleRunner (obj_problemDefinition); 
 //                transfernonDominatedSolutions=obj_SMPSOSingleRunner.SMPSORunner();

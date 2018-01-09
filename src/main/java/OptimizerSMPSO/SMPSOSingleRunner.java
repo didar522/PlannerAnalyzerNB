@@ -78,7 +78,7 @@ public class SMPSOSingleRunner extends AbstractAlgorithmRunner {
 
     BoundedArchive<IntegerSolution> archive = new CrowdingDistanceArchive<IntegerSolution>(100) ;
 
-    double mutationProbability = 1.0 / problem.getNumberOfVariables() ;
+    double mutationProbability = 1.0 / problem.getNumberOfVariables();
     double mutationDistributionIndex = 20.0 ;
     mutation = new IntegerPolynomialMutation(mutationProbability, mutationDistributionIndex) ;
 

@@ -40,6 +40,7 @@ public class homePlanner {
 	int daysForReplan = 0; 
 	double dblAvailableCapacity=0;
 	int bugRatio=0, ftrRatio=0, impRatio=0; 
+        int totalThemeCR = 0; 
 	
 	public homePlanner (Date tmpreleaseStart, Date tmpreleaseEnd, int tmpdaysForReplan, ArrayList<DataIssueTemplate> tmp_allIssueData, double tmp_dblAvailableCapacity, int tmp_ftrRatio, int tmp_bugRatio, int tmp_impRatio){
 		this.releaseStart=tmpreleaseStart;
@@ -57,6 +58,15 @@ public class homePlanner {
 	public void dataPreprocess (){
 		obj_Filtering=new Preprocessing(allIssueData, releaseStart, releaseEnd);
 		backlogIssueData= obj_Filtering.filterIssuesEarlyOpen();
+                
+                for (int iterator=0;iterator<backlogIssueData.size();iterator++){
+                    int randomThemeWeight = 1 + (int)(Math.random()*9);
+                    backlogIssueData.get(iterator).setIntThemeValue (randomThemeWeight); 
+                    if (randomThemeWeight>=7){
+                        totalThemeCR++; 
+                        
+                    }
+                }
 	}
 	
 	public ArrayList<resultTemplate> runPlanner (boolean isplanning) throws Exception{
@@ -66,12 +76,29 @@ public class homePlanner {
 		
 		System.out.println("Size of the solution +++++"+ obj_relPlanning.transfernonDominatedSolutions.size());
 		
-                
-		
+                System.out.println("solutionNum,totalThemeValue,themeCR,themeCRoffered,themeCoverage,totalValue,totalFtrValue,totalBugValue,totalImpValue,totalExtraValue,totalCost,totalFtrCost,totalBugCost,totalImpCost,totalExtraCost");
+                getResultsDisplay (obj_relPlanning.transfernonDominatedSolutions.size()); 
+//		getResultsIntoDB (isplanning);
                     
               		
-//                proposedIssueData3=obj_relPlanning.identifyOfferedforChoice((int)(obj_relPlanning.transfernonDominatedSolutions.size()-1)/2); 
+
 		
+                
+		
+//		calculateResults (proposedIssueData3,3);
+                
+                return list_resultFormat; 
+	}
+	
+	
+        public void getResultsDisplay (int paretoFrontSize){
+            for (int i=0;i<paretoFrontSize;i++){
+                calculateResults (obj_relPlanning.identifyOfferedforChoice(i),i);
+            }
+        }
+        
+        public void getResultsIntoDB (boolean isplanning){
+            // For getting the data in DB and display on the output window and also required for replanning actions. For analysis of the results we keep it off now. 
                 try{
                     Class.forName("org.sqlite.JDBC");
                     connection = DriverManager.getConnection("jdbc:sqlite:DB/BSQPLanner.DB.sqlite");//
@@ -101,17 +128,9 @@ public class homePlanner {
                     Logger.getLogger(importJDialog.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-		
-//		calculateResults (proposedIssueData3,3);
-                
-                return list_resultFormat; 
-	}
+            // For getting the data in DB and display on the output window and also required for replanning actions. For analysis of the results we keep it off now.
+        }
 	
-	
-
-	
-        
-        
         public void storePlanInDB (ArrayList<DataIssueTemplate> planIssueData, int solutionNum, String tmpStrQuery){
             try {
 //                String strQuery = "Insert into OfferedIssueData values (?,?,?,?,?,?);";
@@ -149,51 +168,81 @@ public class homePlanner {
 public void calculateResults (ArrayList<DataIssueTemplate> displayIssueData, int solutionNum){
 		
 	for (DataIssueTemplate iterator:displayIssueData){
-		System.out.println(iterator.getStrKey() +"--"+iterator.isOffered());
+//		System.out.println(iterator.getStrKey() +"--"+iterator.isOffered());
 	}	
 	
 	
 	
-	int totalValue = 0; 
-	double totalFtrTimeSpent = 0, totalBugTimeSpent = 0,totalImpTimeSpent = 0; 
-		
-		for (DataIssueTemplate iterator: displayIssueData){
+	int totalValue = 0, totalThemeValue=0, themeOffered = 0, themeCoverage = 0, totalCost=0; 
+	double totalFtrTimeSpent = 0, totalBugTimeSpent = 0,totalImpTimeSpent = 0, totalExtraTimeSpent = 0; 
+        int totalFtrValue = 0, totalBugValue = 0,totalImpValue = 0, totalExtraValue =0; 
+                
+                for (DataIssueTemplate iterator: displayIssueData){
                     if (iterator.isOffered()==true){
                     
                     totalValue += iterator.getPriorityValue(); 
-			
-			if (iterator.getIssueTypeValue()==1){
+                    totalCost += iterator.getDefaultTimespent();
+                            
+                    	if (iterator.getIssueTypeValue()==1){
 				totalFtrTimeSpent += iterator.getDefaultTimespent(); 
+                                totalFtrValue += iterator.getPriorityValue(); 
 			}
 			
 			else if (iterator.getIssueTypeValue()==2){
 				totalBugTimeSpent += iterator.getDefaultTimespent(); 
+                                totalBugValue += iterator.getPriorityValue(); 
 			}
-			else if(iterator.getIssueTypeValue()==1){
+			else if(iterator.getIssueTypeValue()==3){
 				totalImpTimeSpent += iterator.getDefaultTimespent(); 
+                                totalImpValue += iterator.getPriorityValue(); 
 			}
+                        else {
+                            totalExtraTimeSpent += iterator.getDefaultTimespent();
+                            totalExtraValue += iterator.getPriorityValue();
+                        }
                     }    
                 }
-		
+                
+                for (DataIssueTemplate iterator: displayIssueData){
+                    if (iterator.isOffered()==true){
+                        totalThemeValue += iterator.getIntThemeValue();
+                        
+                        if (iterator.getIntThemeValue()>=7){
+                            themeOffered++; 
+                            
+                        }
+                    }
+                }
+                
+            themeCoverage=100*themeOffered/totalThemeCR; 
+            
+            
             resultTemplate obj_resultFormat = new resultTemplate(); 
                 
             obj_resultFormat.solutionNumber = solutionNum; 
             obj_resultFormat.daysForReplan=daysForReplan; 
 	    obj_resultFormat.totalValue = totalValue; 
-	    obj_resultFormat.actftrRatio=ftrRatio;
-	    obj_resultFormat.actbugRatio = bugRatio;
-	    obj_resultFormat.actimpRatio=impRatio; 
-	    obj_resultFormat.totalFtrTimeSpent=totalFtrTimeSpent;
-	    obj_resultFormat.totalBugTimeSpent=totalBugTimeSpent;
-	    obj_resultFormat.totalImpTimeSpent=totalImpTimeSpent; 
-	    obj_resultFormat.prpftrRatio=(totalFtrTimeSpent*100/(totalFtrTimeSpent+totalBugTimeSpent+totalImpTimeSpent));
-	    obj_resultFormat.prpbugRatio=(totalBugTimeSpent*100/(totalFtrTimeSpent+totalBugTimeSpent+totalImpTimeSpent));
-	    obj_resultFormat.prpimpRatio=(totalImpTimeSpent*100/(totalFtrTimeSpent+totalBugTimeSpent+totalImpTimeSpent));
-	    obj_resultFormat.distance = Math.sqrt(Math.pow((obj_resultFormat.actftrRatio-obj_resultFormat.prpftrRatio),2)+Math.pow((obj_resultFormat.actbugRatio-obj_resultFormat.prpbugRatio),2)+Math.pow((obj_resultFormat.actimpRatio-obj_resultFormat.prpimpRatio),2));
+            obj_resultFormat.totalThemeValue = totalThemeValue; 
+            obj_resultFormat.totalFtrValue = totalFtrValue;
+            obj_resultFormat.totalBugValue = totalBugValue;
+            obj_resultFormat.totalImpValue = totalImpValue;
+            
+            obj_resultFormat.themeCoverage = themeCoverage; 
+           
+//	    obj_resultFormat.actftrRatio=ftrRatio;
+//	    obj_resultFormat.actbugRatio = bugRatio;
+//	    obj_resultFormat.actimpRatio=impRatio; 
+//	    obj_resultFormat.totalFtrTimeSpent=totalFtrTimeSpent;
+//	    obj_resultFormat.totalBugTimeSpent=totalBugTimeSpent;
+//	    obj_resultFormat.totalImpTimeSpent=totalImpTimeSpent; 
+//	    obj_resultFormat.prpftrRatio=(totalFtrTimeSpent*100/(totalFtrTimeSpent+totalBugTimeSpent+totalImpTimeSpent));
+//	    obj_resultFormat.prpbugRatio=(totalBugTimeSpent*100/(totalFtrTimeSpent+totalBugTimeSpent+totalImpTimeSpent));
+//	    obj_resultFormat.prpimpRatio=(totalImpTimeSpent*100/(totalFtrTimeSpent+totalBugTimeSpent+totalImpTimeSpent));
+//	    obj_resultFormat.distance = Math.sqrt(Math.pow((obj_resultFormat.actftrRatio-obj_resultFormat.prpftrRatio),2)+Math.pow((obj_resultFormat.actbugRatio-obj_resultFormat.prpbugRatio),2)+Math.pow((obj_resultFormat.actimpRatio-obj_resultFormat.prpimpRatio),2));
             list_resultFormat.add(obj_resultFormat); 
             
             
-	    System.out.println(obj_resultFormat.totalValue + "--"+ obj_resultFormat.distance+"--"+obj_resultFormat.prpftrRatio+"--"+obj_resultFormat.prpbugRatio+"--"+obj_resultFormat.prpimpRatio);
+	    System.out.println(solutionNum+ ","+totalThemeValue+ ","+totalThemeCR+ ","+themeOffered+ ","+themeCoverage+ "," +totalValue  +","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalExtraValue+","+totalCost+","+totalFtrTimeSpent+","+totalBugTimeSpent+","+totalImpTimeSpent+","+totalExtraTimeSpent);
 
 
 	}

@@ -26,25 +26,18 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
   public ArrayList<DataIssueTemplate> listInClose = new ArrayList<DataIssueTemplate>();  
   
   double totalCapacity=0; 
-  int bugRatio=0;
-  int ftrRatio=0;
-  int impRatio=0; 
-  
+  int intTotalThemeSetSize=0; 
 
   /**
    * Constructor.
    * Creates a default instance of the problem Tanaka
    */
-  public problemDefinition(ArrayList<DataIssueTemplate> listEarlyOpen, double totalCapacity, int bugRatio, int ftrRatio, int impRatio) {
+  public problemDefinition(ArrayList<DataIssueTemplate> listEarlyOpen, double totalCapacity) {
     this.listEarlyOpen = listEarlyOpen; 
     this.totalCapacity = totalCapacity;   
-    
-    this.bugRatio = bugRatio; 
-    this.ftrRatio = ftrRatio; 
-    this.impRatio = impRatio;
-	  
+    	  
     setNumberOfVariables(listEarlyOpen.size());
-    setNumberOfObjectives(2);
+    setNumberOfObjectives(4);
     setNumberOfConstraints(1);
     setName("Planning") ;
     
@@ -54,7 +47,7 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     overallConstraintViolationDegree = new OverallConstraintViolation<IntegerSolution>() ;
     numberOfViolatedConstraints = new NumberOfViolatedConstraints<IntegerSolution>() ;
     
-    //---------------Random value initialization-------------------
+    //---------------Value & Limit initialization-------------------
     
     al_infoStructure = new ArrayList<OptVarTemplate> (getNumberOfVariables());
     
@@ -62,18 +55,17 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     	
     	OptVarTemplate iterator= new OptVarTemplate();
     	iterator.setValue(listEarlyOpen.get(i).getPriorityValue());
+        int randomThemeWeight = 1 + (int)(Math.random()*9);
+        if (listEarlyOpen.get(i).getIntThemeValue()>=7){
+            intTotalThemeSetSize++; 
+        }
+        iterator.setThemevalue(listEarlyOpen.get(i).getIntThemeValue());
     	iterator.setCost(listEarlyOpen.get(i).getDefaultTimespent());
     	iterator.setissueType(listEarlyOpen.get(i).getIssueTypeValue());
-        
-//        System.out.println("setting cost" + listEarlyOpen.get(i).getDefaultTimespent());
-//        System.out.println("after set cost" + iterator.getCost());
-    	   	
+
     	al_infoStructure.add(iterator); 
     }
     
-    //---------------Random value initialization-------------------
-    
-      
     for (int i = 0; i < getNumberOfVariables(); i++) {
       lowerLimit.add(0);
       upperLimit.add(1);
@@ -82,134 +74,90 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     setLowerLimit(lowerLimit);
     setUpperLimit(upperLimit);
 
-    
+    //---------------Value & Limit initialization-------------------
+ 
 //    overallConstraintViolationDegree = new OverallConstraintViolation<IntegerSolution>() ;
 //    numberOfViolatedConstraints = new NumberOfViolatedConstraints<IntegerSolution>() ;
   }
 
   @Override
   public void evaluate(IntegerSolution solution)  {
-
+    int intOfferedFromThemeSet=0; 
+    double dblThemeCoverage=0;
     double[] fx = new double[getNumberOfObjectives()];
     int[] xValues = new int[getNumberOfVariables()];
     
     for (int i = 0; i < solution.getNumberOfVariables(); i++) {
     	xValues[i] = solution.getVariableValue(i) ;
-    	
-//        This has to be on
-//        System.out.print(xValues[i]+"-");
+        System.out.print(xValues[i]+"-");
     }
     
     double totalFtrCost=0;
     double totalBugCost=0;
     double totalImpCost=0;
     double totalCost=0;
+//  
+    double totalFtrValue=0;
+    double totalBugValue=0;
+    double totalImpValue=0;
+    double totalValue=0;
     
-    double proposedFtrCostRatio =0; 
-    double proposedBugCostRatio =0; 
-    double proposedImpCostRatio =0; 
-
+    fx[0] = 0;
+    fx[1] = 0;
+    fx[2] = 0;
+    
+    
     for (int var = 0; var < solution.getNumberOfVariables(); var++) {
       
     	if (al_infoStructure.get(var).getissueType()==1){
-//    		System.out.println("Old total ftr cost"+ totalFtrCost);
                 totalFtrCost=(totalFtrCost+al_infoStructure.get(var).getCost()*xValues[var]); 
-//    		System.out.println("ftr "+al_infoStructure.get(var).getissueType()+" "+al_infoStructure.get(var).getCost()+ " "+ totalFtrCost);
+                totalFtrValue=(totalFtrValue-al_infoStructure.get(var).getValue()*xValues[var]); 
     	}
     	else if (al_infoStructure.get(var).getissueType()==2){
-//            System.out.println("Old total bug cost"+ totalBugCost);	
-            totalBugCost=(totalBugCost+al_infoStructure.get(var).getCost()*xValues[var]);
-//    	    System.out.println("bug "+al_infoStructure.get(var).getissueType()+" "+al_infoStructure.get(var).getCost()+ " "+ totalBugCost );
-    	}
+                totalBugCost=(totalBugCost+al_infoStructure.get(var).getCost()*xValues[var]);
+                totalBugValue=(totalBugValue-al_infoStructure.get(var).getValue()*xValues[var]);
+        }
     	else if (al_infoStructure.get(var).getissueType()==3){
-//    		System.out.println("Old total imp cost"+ totalImpCost);
                 totalImpCost=(totalImpCost+al_infoStructure.get(var).getCost()*xValues[var]); 
-//    		System.out.println("imp "+al_infoStructure.get(var).getissueType()+" "+al_infoStructure.get(var).getCost()+ " "+ totalImpCost );
-    	}
+                totalImpValue=(totalImpValue-al_infoStructure.get(var).getValue()*xValues[var]);
+        }
     }
     
     totalCost = totalFtrCost+totalBugCost+totalImpCost; 
-    
+    totalValue = totalFtrValue+totalBugValue+totalImpValue; 
     
     double totalCapacityCompare=1; 
     if (totalCost>totalCapacity){
          totalCapacityCompare = Math.abs(totalCapacity-totalCost); 
     }
-
-
-    fx[0] = 0;
-    double totalValue=0; 
-    double pmPreference=0; 
+    
+    fx[0] = totalFtrValue/totalCapacityCompare;
+    fx[1] = totalBugValue/totalCapacityCompare;
+    fx[2] = totalImpValue/totalCapacityCompare;
+    
+    
+    double totalThemeValue=0;
+    fx[3] = 0;
     for (int var = 0; var < solution.getNumberOfVariables(); var++) {
-    	
-        if (al_infoStructure.get(var).getissueType()==1){
-            pmPreference = Math.ceil(ftrRatio/20); 
-        }
-        else if (al_infoStructure.get(var).getissueType()==2){
-            pmPreference = Math.ceil(bugRatio/20); 
-        }
-        else if (al_infoStructure.get(var).getissueType()==3){
-            pmPreference = Math.ceil(impRatio/20); 
-        }
-        
-        totalValue = totalValue - (xValues[var]*al_infoStructure.get(var).getValue())-(xValues[var]*pmPreference);
-//        totalValue = totalValue - (xValues[var]*al_infoStructure.get(var).getValue());
+          totalThemeValue = totalThemeValue - (xValues[var]*al_infoStructure.get(var).getThemevalue());
+          if (al_infoStructure.get(var).getThemevalue()>=7){
+              intOfferedFromThemeSet++; 
+          }
     }
-    fx[0]=totalValue/totalCapacityCompare; 
-//    fx[0]=totalValue; 
+    fx[3]=totalThemeValue/totalCapacityCompare; 
+    dblThemeCoverage = (intOfferedFromThemeSet/intTotalThemeSetSize)*100; 
     
-//    System.out.println("Evaluating fx0 "+fx[0]);
-    
- 
-    fx[1] = 0;
-    double totalDistance = Math.sqrt(Math.pow((totalCapacity*ftrRatio/100-totalFtrCost),2)+ Math.pow((totalCapacity*bugRatio/100-totalBugCost),2)+ Math.pow((totalCapacity*impRatio/100-totalImpCost),2));
-    fx[1] = totalDistance*totalCapacityCompare; 
-    
-    
-    
-    
-    proposedFtrCostRatio = totalFtrCost / (totalFtrCost+totalBugCost+totalImpCost)*100;  
-    proposedBugCostRatio =totalBugCost / (totalFtrCost+totalBugCost+totalImpCost)*100; 
-    proposedImpCostRatio= totalImpCost / (totalFtrCost+totalBugCost+totalImpCost)*100;
-    
-    
-    
-//    fx[1] = totalDistance;
-    
-    
-//    System.out.println("Total Eq Ftr--"+totalCapacity+"*"+ftrRatio+"-"+totalFtrCost);
-//    System.out.println("Total Eq Bug--"+totalCapacity+"*"+bugRatio+"-"+totalBugCost);
-//    System.out.println("Total Eq Imp--"+totalCapacity+"*"+impRatio+"-"+totalImpCost);
-//    
-//    System.out.println("Evaluating fx1 "+fx[0]);
-//
-// 
-//      
-//    System.out.println("Total capacity "+ totalCapacity);
-//    System.out.println("Total cost "+ (totalFtrCost+totalBugCost+totalImpCost));
-      
-//      if (totalCost>totalCapacity){
-//          fx[1]=fx[1]*3;
-//          fx[1]=999999999;
-//      }
-      
-      
-      
-//      System.out.println("Evaluating correction fx0 "+fx[1]);
-//      System.out.println("Evaluating correction  fx1 "+fx[1]);
-
 //    This need to be on 
 //    System.out.println("Population,"+fx[0]+","+fx[1]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
 
-
-
-
-
-//    System.out.println("Population,"+fx[0]+","+fx[0]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
-//    System.out.println("Population,"+fx[0]+","+totalValue+","+totalCost+","+totalCapacity);
+    System.out.println("Population values: "+totalValue+","+totalThemeValue+","+totalCost+","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalCapacityCompare+","+dblThemeCoverage);
+    System.out.println("Population Objectives: "+fx[0]+","+fx[1]+","+fx[2]+","+fx[3]);
 
     solution.setObjective(0, fx[0]);
     solution.setObjective(1, fx[1]);
+    solution.setObjective(2, fx[2]);
+    solution.setObjective(3, fx[3]);
+    
   }
     
   

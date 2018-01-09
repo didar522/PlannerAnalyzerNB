@@ -20,6 +20,7 @@ public class DataIssueTemplate {
         public double estimatedWork=0; 
 	private int priorityValue; 
 	private int issueTypeValue; 
+        public int intThemeValue=0; 
 	
 	private boolean offered = false; 
 	
@@ -364,6 +365,20 @@ public class DataIssueTemplate {
      */
     public void setEstimatedWork(double estimatedWork) {
         this.estimatedWork = estimatedWork;
+    }
+
+    /**
+     * @return the intThemeValue
+     */
+    public int getIntThemeValue() {
+        return intThemeValue;
+    }
+
+    /**
+     * @param intThemeValue the intThemeValue to set
+     */
+    public void setIntThemeValue(int intThemeValue) {
+        this.intThemeValue = intThemeValue;
     }
 	
 	

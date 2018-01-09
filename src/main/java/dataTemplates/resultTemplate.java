@@ -9,4 +9,9 @@ public class resultTemplate {
 	public double prpbugRatio=0, prpftrRatio=0, prpimpRatio=0;
 	public double totalFtrTimeSpent, totalBugTimeSpent,  totalImpTimeSpent; 
 	public double distance; 
+        public int totalThemeValue;  
+        public int totalFtrValue;
+        public int totalBugValue;
+        public int totalImpValue;
+        public int themeCoverage; 
 }
