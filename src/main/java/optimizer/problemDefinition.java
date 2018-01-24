@@ -27,6 +27,9 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
   
   double totalCapacity=0; 
   int intTotalThemeSetSize=0; 
+  int evaluationnum=0;
+  int intFreqInteraction = 100; 
+  int numofObjectives =4; 
 
   /**
    * Constructor.
@@ -37,7 +40,7 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     this.totalCapacity = totalCapacity;   
     	  
     setNumberOfVariables(listEarlyOpen.size());
-    setNumberOfObjectives(4);
+    setNumberOfObjectives(numofObjectives);
     setNumberOfConstraints(1);
     setName("Planning") ;
     
@@ -82,6 +85,10 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
 
   @Override
   public void evaluate(IntegerSolution solution)  {
+    
+    evaluationnum++;
+//    System.out.println("==============================================Evaluation Num"+ evaluationnum);
+      
     int intOfferedFromThemeSet=0; 
     double dblThemeCoverage=0;
     double[] fx = new double[getNumberOfObjectives()];
@@ -89,7 +96,26 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     
     for (int i = 0; i < solution.getNumberOfVariables(); i++) {
     	xValues[i] = solution.getVariableValue(i) ;
-        System.out.print(xValues[i]+"-");
+        
+//        for interactive nature we need to manipulate the results. This part has to be turned on for interaction. =======================================
+        
+//        if (evaluationnum%intFreqInteraction==0){
+//            System.out.println("==============================================Evaluation Num"+ evaluationnum);
+//            System.out.println("User interaction performed after "+intFreqInteraction+ " at iteration num "+ evaluationnum);
+//            if (al_infoStructure.get(i).getThemevalue()>=7){
+//            solution.setVariableValue(i,1); 
+//            }
+//        }
+        
+
+
+            
+        
+        
+        
+        
+//        for interactive nature we need to manipulate the results. This part has to be turned on for interaction. =======================================
+//        System.out.print(xValues[i]+"-");
     }
     
     double totalFtrCost=0;
@@ -127,13 +153,24 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     totalValue = totalFtrValue+totalBugValue+totalImpValue; 
     
     double totalCapacityCompare=1; 
+//    if (totalCost>totalCapacity){
+//         totalCapacityCompare = Math.abs(totalCapacity-totalCost); 
+//         System.out.println("penalty applied*******************");
+//    }
+    
     if (totalCost>totalCapacity){
-         totalCapacityCompare = Math.abs(totalCapacity-totalCost); 
+        fx[0] = 0;
+        fx[1] = 0;
+        fx[2] = 0;
+//        System.out.println("penalty applied*******************");
+    }
+    else {
+        fx[0] = totalFtrValue;
+        fx[1] = totalBugValue;
+        fx[2] = totalImpValue;
     }
     
-    fx[0] = totalFtrValue/totalCapacityCompare;
-    fx[1] = totalBugValue/totalCapacityCompare;
-    fx[2] = totalImpValue/totalCapacityCompare;
+    
     
     
     double totalThemeValue=0;
@@ -144,14 +181,21 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
               intOfferedFromThemeSet++; 
           }
     }
-    fx[3]=totalThemeValue/totalCapacityCompare; 
     dblThemeCoverage = (intOfferedFromThemeSet/intTotalThemeSetSize)*100; 
+    
+    if (totalCost>totalCapacity){
+        fx[3]=0; 
+//        System.out.println("penalty applied*******************");
+    }
+    else {
+        fx[3]=totalThemeValue*dblThemeCoverage; 
+    }
     
 //    This need to be on 
 //    System.out.println("Population,"+fx[0]+","+fx[1]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
 
-    System.out.println("Population values: "+totalValue+","+totalThemeValue+","+totalCost+","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalCapacityCompare+","+dblThemeCoverage);
-    System.out.println("Population Objectives: "+fx[0]+","+fx[1]+","+fx[2]+","+fx[3]);
+//    System.out.println("Population values: "+totalValue+","+totalThemeValue+","+totalCost+","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalCapacityCompare+","+dblThemeCoverage);
+//    System.out.println("Population Objectives: "+fx[0]+","+fx[1]+","+fx[2]+","+fx[3]);
 
     solution.setObjective(0, fx[0]);
     solution.setObjective(1, fx[1]);
@@ -159,7 +203,93 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
     solution.setObjective(3, fx[3]);
     
   }
-    
+//    
+  
+//evaluate for baseline setup======================================================
+ 
+//  public void evaluate(IntegerSolution solution)  {
+//    int intOfferedFromThemeSet=0; 
+//    double dblThemeCoverage=0;
+//    double[] fx = new double[getNumberOfObjectives()];
+//    int[] xValues = new int[getNumberOfVariables()];
+//    
+//    for (int i = 0; i < solution.getNumberOfVariables(); i++) {
+//    	xValues[i] = solution.getVariableValue(i) ;
+////        System.out.print(xValues[i]+"-");
+//    }
+//    
+//    double totalFtrCost=0;
+//    double totalBugCost=0;
+//    double totalImpCost=0;
+//    double totalCost=0;
+////  
+//    double totalFtrValue=0;
+//    double totalBugValue=0;
+//    double totalImpValue=0;
+//    double totalValue=0;
+//    
+//    fx[0] = 0;
+//    
+//    
+//    
+//    for (int var = 0; var < solution.getNumberOfVariables(); var++) {
+//      
+//    	if (al_infoStructure.get(var).getissueType()==1){
+//                totalFtrCost=(totalFtrCost+al_infoStructure.get(var).getCost()*xValues[var]); 
+//                totalFtrValue=(totalFtrValue-al_infoStructure.get(var).getValue()*xValues[var]); 
+//    	}
+//    	else if (al_infoStructure.get(var).getissueType()==2){
+//                totalBugCost=(totalBugCost+al_infoStructure.get(var).getCost()*xValues[var]);
+//                totalBugValue=(totalBugValue-al_infoStructure.get(var).getValue()*xValues[var]);
+//        }
+//    	else if (al_infoStructure.get(var).getissueType()==3){
+//                totalImpCost=(totalImpCost+al_infoStructure.get(var).getCost()*xValues[var]); 
+//                totalImpValue=(totalImpValue-al_infoStructure.get(var).getValue()*xValues[var]);
+//        }
+//    }
+//    
+//    totalCost = totalFtrCost+totalBugCost+totalImpCost; 
+//    totalValue = totalFtrValue+totalBugValue+totalImpValue; 
+//    
+//    double totalCapacityCompare=1; 
+//    if (totalCost>totalCapacity){
+//         totalCapacityCompare = Math.abs(totalCapacity-totalCost); 
+//         fx[0] =0; 
+//    }
+//    else {
+//        fx[0] = totalValue;
+//    }
+//    
+////    fx[0] = totalValue/totalCapacityCompare;
+//   
+//    
+//    
+//    double totalThemeValue=0;
+//    
+//    for (int var = 0; var < solution.getNumberOfVariables(); var++) {
+//          totalThemeValue = totalThemeValue - (xValues[var]*al_infoStructure.get(var).getThemevalue());
+//          if (al_infoStructure.get(var).getThemevalue()>=7){
+//              intOfferedFromThemeSet++; 
+//          }
+//    }
+//    
+//    dblThemeCoverage = (intOfferedFromThemeSet/intTotalThemeSetSize)*100; 
+//    
+////    This need to be on 
+////    System.out.println("Population,"+fx[0]+","+fx[1]+","+totalValue+","+totalDistance+","+proposedFtrCostRatio+","+proposedBugCostRatio+","+proposedImpCostRatio+","+totalCost+","+totalCapacity);
+//
+////    System.out.println("Population values: "+totalValue+","+totalThemeValue+","+totalCost+","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalCapacityCompare+","+dblThemeCoverage);
+////    System.out.println("Population Objectives: "+fx[0]);
+//
+//    solution.setObjective(0, fx[0]);
+//    
+//    
+//  }
+  
+  
+//evaluate for baseline setup====================================================== 
+  
+  
   
   
   

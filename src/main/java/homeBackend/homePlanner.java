@@ -60,11 +60,10 @@ public class homePlanner {
 		backlogIssueData= obj_Filtering.filterIssuesEarlyOpen();
                 
                 for (int iterator=0;iterator<backlogIssueData.size();iterator++){
-                    int randomThemeWeight = 1 + (int)(Math.random()*9);
-                    backlogIssueData.get(iterator).setIntThemeValue (randomThemeWeight); 
-                    if (randomThemeWeight>=7){
+                    System.out.println ("BLID - "+backlogIssueData.get(iterator).getStrKey());
+//                    backlogIssueData.get(iterator).setIntThemeValue((int)Math.random()*((9-4)+4));
+                    if (backlogIssueData.get(iterator).getIntThemeValue ()>=7){
                         totalThemeCR++; 
-                        
                     }
                 }
 	}
@@ -76,7 +75,7 @@ public class homePlanner {
 		
 		System.out.println("Size of the solution +++++"+ obj_relPlanning.transfernonDominatedSolutions.size());
 		
-                System.out.println("solutionNum,totalThemeValue,themeCR,themeCRoffered,themeCoverage,totalValue,totalFtrValue,totalBugValue,totalImpValue,totalExtraValue,totalCost,totalFtrCost,totalBugCost,totalImpCost,totalExtraCost");
+                System.out.println("solutionNum,totalThemeValue,themeCR,themeCRoffered,themeCoverage,totalValue,totalFtrValue,totalBugValue,totalImpValue,totalExtraValue,totalCapacity,totalCost,totalFtrCost,totalBugCost,totalImpCost,totalExtraCost,totalIssuesOffered,totalFtrOffered,totalBugOffered,totalImpOffered");
                 getResultsDisplay (obj_relPlanning.transfernonDominatedSolutions.size()); 
 //		getResultsIntoDB (isplanning);
                     
@@ -175,26 +174,31 @@ public void calculateResults (ArrayList<DataIssueTemplate> displayIssueData, int
 	
 	int totalValue = 0, totalThemeValue=0, themeOffered = 0, themeCoverage = 0, totalCost=0; 
 	double totalFtrTimeSpent = 0, totalBugTimeSpent = 0,totalImpTimeSpent = 0, totalExtraTimeSpent = 0; 
-        int totalFtrValue = 0, totalBugValue = 0,totalImpValue = 0, totalExtraValue =0; 
+        int totalFtrValue = 0, totalBugValue = 0,totalImpValue = 0, totalExtraValue =0;
+        int totalIssue = 0, totalFtr = 0, totalBug=0, totalImp=0; 
                 
                 for (DataIssueTemplate iterator: displayIssueData){
                     if (iterator.isOffered()==true){
                     
                     totalValue += iterator.getPriorityValue(); 
                     totalCost += iterator.getDefaultTimespent();
+                    totalIssue++; 
                             
                     	if (iterator.getIssueTypeValue()==1){
 				totalFtrTimeSpent += iterator.getDefaultTimespent(); 
                                 totalFtrValue += iterator.getPriorityValue(); 
+                                totalFtr++; 
 			}
 			
 			else if (iterator.getIssueTypeValue()==2){
 				totalBugTimeSpent += iterator.getDefaultTimespent(); 
-                                totalBugValue += iterator.getPriorityValue(); 
+                                totalBugValue += iterator.getPriorityValue();
+                                totalBug++; 
 			}
 			else if(iterator.getIssueTypeValue()==3){
 				totalImpTimeSpent += iterator.getDefaultTimespent(); 
                                 totalImpValue += iterator.getPriorityValue(); 
+                                totalImp++; 
 			}
                         else {
                             totalExtraTimeSpent += iterator.getDefaultTimespent();
@@ -242,7 +246,10 @@ public void calculateResults (ArrayList<DataIssueTemplate> displayIssueData, int
             list_resultFormat.add(obj_resultFormat); 
             
             
-	    System.out.println(solutionNum+ ","+totalThemeValue+ ","+totalThemeCR+ ","+themeOffered+ ","+themeCoverage+ "," +totalValue  +","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalExtraValue+","+totalCost+","+totalFtrTimeSpent+","+totalBugTimeSpent+","+totalImpTimeSpent+","+totalExtraTimeSpent);
+	    System.out.println(solutionNum+ ","+totalThemeValue+ ","+totalThemeCR+ ","+themeOffered+ ","+themeCoverage+ "," 
+                    +totalValue  +","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalExtraValue+","
+                    +dblAvailableCapacity+","+totalCost+","+totalFtrTimeSpent+","+totalBugTimeSpent+","+totalImpTimeSpent+","+totalExtraTimeSpent
+                    +","+totalIssue+","+totalFtr+","+totalBug+","+totalImp);
 
 
 	}

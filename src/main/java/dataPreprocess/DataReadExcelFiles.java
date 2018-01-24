@@ -21,6 +21,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 import dataTemplates.DataIssueTemplate;
+import java.time.Clock;
 
 
 
@@ -168,8 +169,36 @@ public class DataReadExcelFiles {
 		    		if (row.getCell(columnIndex.get("Creator"))!=null) tempIssueData.setStrCreator(row.getCell(columnIndex.get("Creator")).getStringCellValue());
 		    		if (row.getCell(columnIndex.get("Component/s"))!=null) tempIssueData.setStrComponent(row.getCell(columnIndex.get("Component/s")).getStringCellValue());
 		    		if (row.getCell(columnIndex.get("Î£ Original Estimate"))!=null) tempIssueData.setEstimatedWork(row.getCell(columnIndex.get("Î£ Original Estimate")).getNumericCellValue());
+		    		if (row.getCell(columnIndex.get("ThemeRelevance"))!=null) {
+                                    
+//                                    if (row.getCell(columnIndex.get("ThemeRelevance")).getStringCellValue().equalsIgnoreCase("R3.6.0")){
+//                                         tempIssueData.setIntThemeValue(9);
+////                                         System.out.println ("Uploded 9"+ tempIssueData.getStrKey());                                    
+//                                    }
+//                                    else if (row.getCell(columnIndex.get("ThemeRelevance")).getStringCellValue().equalsIgnoreCase("R3.7")){
+//                                         tempIssueData.setIntThemeValue(5);
+////                                          System.out.println ("Uploded 5"+ tempIssueData.getStrKey());         
+//                                    }
+//                                    else if (row.getCell(columnIndex.get("ThemeRelevance")).getStringCellValue().equalsIgnoreCase("R3.8")){
+//                                         tempIssueData.setIntThemeValue(1);
+////                                          System.out.println ("Uploded 1"+ tempIssueData.getStrKey());         
+//                                    }
+//                                    else {
+//                                         tempIssueData.setIntThemeValue(0);
+////                                          System.out.println ("Uploded 0"+ tempIssueData.getStrKey());         
+//                                    }
+
+
+                                    tempIssueData.setIntThemeValue((int)row.getCell(columnIndex.get("ThemeRelevance")).getNumericCellValue());
+
+                                   
+                                }
 		    		
-		    		//Checking requeired
+
+
+
+
+//Checking requeired
 		    		if (row.getCell(columnIndex.get("Description"))!=null){
 		    			if(row.getCell(columnIndex.get("Description")).getCellType()==0) tempIssueData.setStrDescription(String.valueOf(row.getCell(columnIndex.get("Description")).getNumericCellValue()));
 		    			else if(row.getCell(columnIndex.get("Description")).getCellType()==1) tempIssueData.setStrDescription(row.getCell(columnIndex.get("Description")).getStringCellValue());

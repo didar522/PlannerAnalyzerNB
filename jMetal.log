@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-01-09T07:21:27</date>
-  <millis>1515507687252</millis>
+  <date>2018-01-24T15:21:46</date>
+  <millis>1516832506921</millis>
   <sequence>0</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Loggers configured with null</message>
 </record>
 <record>
-  <date>2018-01-09T07:21:27</date>
-  <millis>1515507687261</millis>
+  <date>2018-01-24T15:21:46</date>
+  <millis>1516832506932</millis>
   <sequence>1</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -24,9 +24,20 @@
   <message>ExecuteAlgorithms: Preparing output directory</message>
 </record>
 <record>
-  <date>2018-01-09T07:21:27</date>
-  <millis>1515507687268</millis>
+  <date>2018-01-24T15:21:46</date>
+  <millis>1516832506939</millis>
   <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message>Creating C:/Users/Didar/Desktop/N4//SMPSOStudy2/data/SMPSO251017/Planning</message>
+</record>
+<record>
+  <date>2018-01-24T15:21:46</date>
+  <millis>1516832506940</millis>
+  <sequence>3</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
@@ -35,9 +46,20 @@
   <message> Running algorithm: SMPSO251017, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//SMPSOStudy2/data/SMPSO251017/Planning/FUN0.tsv</message>
 </record>
 <record>
-  <date>2018-01-09T07:21:31</date>
-  <millis>1515507691249</millis>
-  <sequence>3</sequence>
+  <date>2018-01-24T15:21:47</date>
+  <millis>1516832507231</millis>
+  <sequence>4</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>optimizer.GenerateReferenceParetoSetAndFrontFromDoubleSolutions_Didar</class>
+  <method>createOutputDirectory</method>
+  <thread>14</thread>
+  <message>Creating C:/Users/Didar/Desktop/N4//referenceFronts. Status = true</message>
+</record>
+<record>
+  <date>2018-01-24T15:21:47</date>
+  <millis>1516832507476</millis>
+  <sequence>5</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -246,9 +268,9 @@
   </exception>
 </record>
 <record>
-  <date>2018-01-09T07:21:31</date>
-  <millis>1515507691251</millis>
-  <sequence>4</sequence>
+  <date>2018-01-24T15:21:47</date>
+  <millis>1516832507479</millis>
+  <sequence>6</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -457,9 +479,9 @@
   </exception>
 </record>
 <record>
-  <date>2018-01-09T07:21:31</date>
-  <millis>1515507691254</millis>
-  <sequence>5</sequence>
+  <date>2018-01-24T15:21:47</date>
+  <millis>1516832507483</millis>
+  <sequence>7</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>
@@ -668,9 +690,9 @@
   </exception>
 </record>
 <record>
-  <date>2018-01-09T07:21:31</date>
-  <millis>1515507691256</millis>
-  <sequence>6</sequence>
+  <date>2018-01-24T15:21:47</date>
+  <millis>1516832507485</millis>
+  <sequence>8</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
   <class>gui.Planner.plannerJPanel</class>

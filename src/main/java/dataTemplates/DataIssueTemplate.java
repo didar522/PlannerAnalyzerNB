@@ -21,6 +21,7 @@ public class DataIssueTemplate {
 	private int priorityValue; 
 	private int issueTypeValue; 
         public int intThemeValue=0; 
+        
 	
 	private boolean offered = false; 
 	
@@ -297,7 +298,7 @@ public class DataIssueTemplate {
                         
 //		}
 
-                timespent = estimatedWork; 
+                timespent = estimatedWork/3600; 
 		
 		return timespent; 
 		
@@ -312,16 +313,16 @@ public class DataIssueTemplate {
 //			timespent=(getDateDiff(dateCreated, dateResolved,TimeUnit.DAYS)*8);
 //		}
 
-                timespent = estimatedWork; 
+                timespent = estimatedWork/3600; 
 		
 		return timespent; 
 		
 	}
 	
 	public void setPriorityValue (){
-		if (this.strPriority.equals("Blocker")) this.priorityValue = 5;
-		if (this.strPriority.equals("Critical")) this.priorityValue = 4;
-		if (this.strPriority.equals("Major")) this.priorityValue = 3;
+		if (this.strPriority.equals("Blocker")) this.priorityValue = 9;
+		if (this.strPriority.equals("Critical")) this.priorityValue = 8;
+		if (this.strPriority.equals("Major")) this.priorityValue = 6;
 		if (this.strPriority.equals("Minor")) this.priorityValue = 2;
 		if (this.strPriority.equals("Trivial")) this.priorityValue = 1;
 	}
@@ -380,6 +381,11 @@ public class DataIssueTemplate {
     public void setIntThemeValue(int intThemeValue) {
         this.intThemeValue = intThemeValue;
     }
+
+    /**
+     * @return the intThemeRelevance
+     */
+    
 	
 	
 	
