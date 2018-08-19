@@ -91,7 +91,7 @@ List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList 
         configureAlgorithmList(problemList);
 
 Experiment<IntegerSolution, List<IntegerSolution>> experiment =
-    new ExperimentBuilder<IntegerSolution, List<IntegerSolution>>("NSGAIIStudy2")
+    new ExperimentBuilder<IntegerSolution, List<IntegerSolution>>("SMPSOStudy2")
         .setAlgorithmList(algorithmList)
         .setProblemList(problemList)
         .setExperimentBaseDirectory(experimentBaseDirectory)
@@ -139,7 +139,7 @@ for (int i = 0; i < problemList.size(); i++) {
           .setMaxEvaluations(25000)
           .setPopulationSize(100)
           .build();
-  algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAIIa", problemList.get(i).getTag()));
+  algorithms.add(new ExperimentAlgorithm<>(algorithm, "SMPSOa", problemList.get(i).getTag()));
 }
 
 //for (int i = 0; i < problemList.size(); i++) {

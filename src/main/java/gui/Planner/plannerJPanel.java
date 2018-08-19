@@ -51,7 +51,8 @@ public class plannerJPanel extends javax.swing.JPanel {
         jLabel13.setVisible(false);
         jLabel14.setVisible(false);
         
-        
+        replanInterval.setVisible(false);
+        jLabel3.setVisible(false);
         
 //        jLabel15.setVisible(false);
 //        jLabel16.setVisible(false);
@@ -86,10 +87,6 @@ public class plannerJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jLabel8 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jTextField1PartTimeRes = new javax.swing.JTextField();
@@ -134,6 +131,11 @@ public class plannerJPanel extends javax.swing.JPanel {
         });
 
         replanInterval.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "4", "6", "8", "10", "12", "14", "16" }));
+        replanInterval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                replanIntervalActionPerformed(evt);
+            }
+        });
 
         jComboBox1ftrRatio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" }));
         jComboBox1ftrRatio.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +155,7 @@ public class plannerJPanel extends javax.swing.JPanel {
         jLabel2.setText("Release End Date");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Re plan Interval");
+        jLabel3.setText("Interactions");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Full-time resources");
@@ -166,23 +168,6 @@ public class plannerJPanel extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("For improvement  (%)");
-
-        jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jCheckBox1.setText("ACO");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jCheckBox2.setText("SMPSO");
-
-        jCheckBox3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jCheckBox3.setText("NSGA II");
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setText("Choice of algorithms");
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 51, 255));
@@ -221,7 +206,7 @@ public class plannerJPanel extends javax.swing.JPanel {
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jLabel15)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,13 +219,9 @@ public class plannerJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jCheckBox3)
-                                    .addComponent(jCheckBox2)
-                                    .addComponent(jCheckBox1)
                                     .addComponent(jXDatePicker1endDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jComboBox3impRatio, 0, 123, Short.MAX_VALUE)
                                     .addComponent(jComboBox2bugRatio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -327,19 +308,11 @@ public class plannerJPanel extends javax.swing.JPanel {
                         .addComponent(jComboBox2bugRatio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox3impRatio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox3)
-                .addGap(12, 12, 12)
+                .addGap(104, 104, 104)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(clearDBBtn))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(leftPanel);
@@ -583,11 +556,11 @@ public class plannerJPanel extends javax.swing.JPanel {
         
 //        infoSolution3Panel.setVisible(true);
         
-        jLabel9.setText("Total value: "+ Integer.toString(list_resultPlanner.get(0).totalValue));
+        jLabel9.setText("Stakeholder value: "+ Integer.toString(list_resultPlanner.get(0).totalValue));
         jLabel9.setVisible(true);
-        jLabel10.setText("Total Distance: "+ Double.toString(list_resultPlanner.get(0).distance));
+        jLabel10.setText("Total coverage: "+ Double.toString(list_resultPlanner.get(0).themeCoverage));
         jLabel10.setVisible(true);
-        jLabel11.setText("Effort ratio (ftr, Bug, Imp ): "+ Integer.toString((int)list_resultPlanner.get(0).prpftrRatio) + " "+Integer.toString((int)list_resultPlanner.get(0).prpbugRatio)+" "+Integer.toString((int)list_resultPlanner.get(0).prpimpRatio));
+        jLabel11.setText("Theme value: "+ Integer.toString((int)list_resultPlanner.get(0).totalThemeValue));// + " "+Integer.toString((int)list_resultPlanner.get(0).actbugRatio)+" "+Integer.toString((int)list_resultPlanner.get(0).actimpRatio));
         jLabel11.setVisible(true);
         
         String Query1 = "SELECT * FROM OfferedIssueData;";
@@ -598,11 +571,11 @@ public class plannerJPanel extends javax.swing.JPanel {
         
         if (list_resultPlanner.size()>1){
         
-            jLabel12.setText("Total value: "+ Integer.toString(list_resultPlanner.get(1).totalValue));
+            jLabel12.setText("Stakeholder value: "+ Integer.toString(list_resultPlanner.get(1).totalValue));
             jLabel12.setVisible(true);
-            jLabel13.setText("Total Distance: "+ Double.toString(list_resultPlanner.get(1).distance));
+            jLabel13.setText("Total coverage: "+ Double.toString(list_resultPlanner.get(1).themeCoverage));
             jLabel13.setVisible(true);
-            jLabel14.setText("Effort ratio (ftr, Bug, Imp ): "+ Integer.toString((int)list_resultPlanner.get(1).prpftrRatio) + " "+Integer.toString((int)list_resultPlanner.get(1).prpbugRatio)+" "+Integer.toString((int)list_resultPlanner.get(1).prpimpRatio));
+            jLabel14.setText("Theme value: "+ Integer.toString((int)list_resultPlanner.get(1).totalThemeValue));// + " "+Integer.toString((int)list_resultPlanner.get(1).prpbugRatio)+" "+Integer.toString((int)list_resultPlanner.get(1).prpimpRatio));
             jLabel14.setVisible(true);
         
             String Query2 = "SELECT * FROM OfferedIssueData1;";
@@ -635,10 +608,6 @@ public class plannerJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
     private void clearDBBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearDBBtnActionPerformed
         try {
             // TODO add your handling code here:
@@ -666,6 +635,10 @@ public class plannerJPanel extends javax.swing.JPanel {
     private void jComboBox1ftrRatioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ftrRatioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ftrRatioActionPerformed
+
+    private void replanIntervalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_replanIntervalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_replanIntervalActionPerformed
 
 public void display1ExcelData (String strQuery){
         try {    
@@ -740,9 +713,6 @@ public void display4ExcelData (String strQuery){
     private javax.swing.JPanel infoSolution1Panel;
     private javax.swing.JPanel infoSolution2Panel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox<String> jComboBox1ftrRatio;
     private javax.swing.JComboBox<String> jComboBox2bugRatio;
     private javax.swing.JComboBox<String> jComboBox3impRatio;
@@ -766,7 +736,6 @@ public void display4ExcelData (String strQuery){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

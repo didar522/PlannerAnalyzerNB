@@ -298,7 +298,7 @@ public class DataIssueTemplate {
                         
 //		}
 
-                timespent = estimatedWork/3600; 
+                timespent = estimatedWork/3600*8; 
 		
 		return timespent; 
 		
@@ -313,7 +313,7 @@ public class DataIssueTemplate {
 //			timespent=(getDateDiff(dateCreated, dateResolved,TimeUnit.DAYS)*8);
 //		}
 
-                timespent = estimatedWork/3600; 
+                timespent = estimatedWork/3600*8; 
 		
 		return timespent; 
 		

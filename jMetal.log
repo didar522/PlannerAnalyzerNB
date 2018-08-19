@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-01-24T15:21:46</date>
-  <millis>1516832506921</millis>
+  <date>2018-07-18T11:12:33</date>
+  <millis>1531933953150</millis>
   <sequence>0</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Loggers configured with null</message>
 </record>
 <record>
-  <date>2018-01-24T15:21:46</date>
-  <millis>1516832506932</millis>
+  <date>2018-07-18T11:12:33</date>
+  <millis>1531933953163</millis>
   <sequence>1</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -24,30 +24,30 @@
   <message>ExecuteAlgorithms: Preparing output directory</message>
 </record>
 <record>
-  <date>2018-01-24T15:21:46</date>
-  <millis>1516832506939</millis>
+  <date>2018-07-18T11:12:33</date>
+  <millis>1531933953179</millis>
   <sequence>2</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
   <method>runAlgorithm</method>
   <thread>14</thread>
-  <message>Creating C:/Users/Didar/Desktop/N4//SMPSOStudy2/data/SMPSO251017/Planning</message>
+  <message>Creating C:/Users/Didar/Desktop/N4//SMPSOStudy2/data/SMPSOa/Planning</message>
 </record>
 <record>
-  <date>2018-01-24T15:21:46</date>
-  <millis>1516832506940</millis>
+  <date>2018-07-18T11:12:33</date>
+  <millis>1531933953179</millis>
   <sequence>3</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
   <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
   <method>runAlgorithm</method>
   <thread>14</thread>
-  <message> Running algorithm: SMPSO251017, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//SMPSOStudy2/data/SMPSO251017/Planning/FUN0.tsv</message>
+  <message> Running algorithm: SMPSOa, problem: Planning, run: 0, funFile: C:/Users/Didar/Desktop/N4//SMPSOStudy2/data/SMPSOa/Planning/FUN0.tsv</message>
 </record>
 <record>
-  <date>2018-01-24T15:21:47</date>
-  <millis>1516832507231</millis>
+  <date>2018-07-18T11:12:39</date>
+  <millis>1531933959277</millis>
   <sequence>4</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Creating C:/Users/Didar/Desktop/N4//referenceFronts. Status = true</message>
 </record>
 <record>
-  <date>2018-01-24T15:21:47</date>
-  <millis>1516832507476</millis>
+  <date>2018-07-18T11:12:53</date>
+  <millis>1531933973501</millis>
   <sequence>5</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
@@ -70,12 +70,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display1ExcelData</method>
-      <line>677</line>
+      <line>650</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>594</line>
+      <line>567</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -85,7 +85,7 @@
     <frame>
       <class>gui.Planner.plannerJPanel$1</class>
       <method>actionPerformed</method>
-      <line>132</line>
+      <line>129</line>
     </frame>
     <frame>
       <class>javax.swing.AbstractButton</class>
@@ -268,8 +268,8 @@
   </exception>
 </record>
 <record>
-  <date>2018-01-24T15:21:47</date>
-  <millis>1516832507479</millis>
+  <date>2018-07-18T11:12:53</date>
+  <millis>1531933973501</millis>
   <sequence>6</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
@@ -281,12 +281,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display3ExcelData</method>
-      <line>703</line>
+      <line>676</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>596</line>
+      <line>569</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -296,7 +296,7 @@
     <frame>
       <class>gui.Planner.plannerJPanel$1</class>
       <method>actionPerformed</method>
-      <line>132</line>
+      <line>129</line>
     </frame>
     <frame>
       <class>javax.swing.AbstractButton</class>
@@ -479,8 +479,8 @@
   </exception>
 </record>
 <record>
-  <date>2018-01-24T15:21:47</date>
-  <millis>1516832507483</millis>
+  <date>2018-07-18T11:12:53</date>
+  <millis>1531933973501</millis>
   <sequence>7</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
@@ -492,12 +492,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display2ExcelData</method>
-      <line>690</line>
+      <line>663</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>609</line>
+      <line>582</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -507,7 +507,7 @@
     <frame>
       <class>gui.Planner.plannerJPanel$1</class>
       <method>actionPerformed</method>
-      <line>132</line>
+      <line>129</line>
     </frame>
     <frame>
       <class>javax.swing.AbstractButton</class>
@@ -690,8 +690,8 @@
   </exception>
 </record>
 <record>
-  <date>2018-01-24T15:21:47</date>
-  <millis>1516832507485</millis>
+  <date>2018-07-18T11:12:53</date>
+  <millis>1531933973517</millis>
   <sequence>8</sequence>
   <logger>guiImport.importJDialog</logger>
   <level>SEVERE</level>
@@ -703,12 +703,12 @@
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>display4ExcelData</method>
-      <line>716</line>
+      <line>689</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
       <method>jButton1ActionPerformed</method>
-      <line>611</line>
+      <line>584</line>
     </frame>
     <frame>
       <class>gui.Planner.plannerJPanel</class>
@@ -718,7 +718,7 @@
     <frame>
       <class>gui.Planner.plannerJPanel$1</class>
       <method>actionPerformed</method>
-      <line>132</line>
+      <line>129</line>
     </frame>
     <frame>
       <class>javax.swing.AbstractButton</class>
@@ -900,4 +900,3 @@
     </frame>
   </exception>
 </record>
-</log>

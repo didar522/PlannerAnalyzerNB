@@ -28,7 +28,7 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
   double totalCapacity=0; 
   int intTotalThemeSetSize=0; 
   int evaluationnum=0;
-  int intFreqInteraction = 100; 
+  int intFreqInteraction = 10; 
   int numofObjectives =4; 
 
   /**
@@ -99,13 +99,13 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
         
 //        for interactive nature we need to manipulate the results. This part has to be turned on for interaction. =======================================
         
-//        if (evaluationnum%intFreqInteraction==0){
-//            System.out.println("==============================================Evaluation Num"+ evaluationnum);
-//            System.out.println("User interaction performed after "+intFreqInteraction+ " at iteration num "+ evaluationnum);
-//            if (al_infoStructure.get(i).getThemevalue()>=7){
-//            solution.setVariableValue(i,1); 
-//            }
-//        }
+        if (evaluationnum%intFreqInteraction==0){
+            System.out.println("==============================================Evaluation Num"+ evaluationnum);
+            System.out.println("User interaction performed after "+intFreqInteraction+ " at iteration num "+ evaluationnum);
+            if (al_infoStructure.get(i).getThemevalue()>=7){
+            solution.setVariableValue(i,1); 
+            }
+        }
         
 
 
@@ -168,6 +168,7 @@ public class problemDefinition extends AbstractIntegerProblem implements Constra
         fx[0] = totalFtrValue;
         fx[1] = totalBugValue;
         fx[2] = totalImpValue;
+//        fx[3] = totalValue;
     }
     
     

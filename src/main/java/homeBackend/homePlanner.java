@@ -7,6 +7,8 @@ import dataPreprocess.Preprocessing;
 import dataTemplates.DataIssueTemplate;
 import dataTemplates.resultTemplate;
 import guiImport.importJDialog;
+import java.io.File;
+import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -35,7 +37,7 @@ public class homePlanner {
         Preprocessing obj_Filtering; 
 	relPlanning obj_relPlanning ; 
 	relRePlanning obj_relRePlanning;
-	
+	PrintStream console = System.out;
 	
 	int daysForReplan = 0; 
 	double dblAvailableCapacity=0;
@@ -58,10 +60,15 @@ public class homePlanner {
 	public void dataPreprocess (){
 		obj_Filtering=new Preprocessing(allIssueData, releaseStart, releaseEnd);
 		backlogIssueData= obj_Filtering.filterIssuesEarlyOpen();
+                System.out.println ("Early issue open dataset that the planning worked upon");
+                System.out.println ("IssueKey,IssueType,Priority,TimeSpent,Theme"); 
                 
                 for (int iterator=0;iterator<backlogIssueData.size();iterator++){
-                    System.out.println ("BLID - "+backlogIssueData.get(iterator).getStrKey());
+                    
 //                    backlogIssueData.get(iterator).setIntThemeValue((int)Math.random()*((9-4)+4));
+                    backlogIssueData.get(iterator).setIntThemeValue((int)(4+Math.random()*(9-4)));
+                    System.out.println (backlogIssueData.get(iterator).getStrKey()+","+backlogIssueData.get(iterator).getIssueTypeValue()+","+backlogIssueData.get(iterator).getPriorityValue()+","+backlogIssueData.get(iterator).getDefaultTimespent()+","+backlogIssueData.get(iterator).getIntThemeValue());
+                    
                     if (backlogIssueData.get(iterator).getIntThemeValue ()>=7){
                         totalThemeCR++; 
                     }
@@ -73,11 +80,21 @@ public class homePlanner {
 		obj_relPlanning = new relPlanning(); 
 		obj_relPlanning.performRelPlanning(backlogIssueData, dblAvailableCapacity, bugRatio, ftrRatio, impRatio); 
 		
-		System.out.println("Size of the solution +++++"+ obj_relPlanning.transfernonDominatedSolutions.size());
 		
-                System.out.println("solutionNum,totalThemeValue,themeCR,themeCRoffered,themeCoverage,totalValue,totalFtrValue,totalBugValue,totalImpValue,totalExtraValue,totalCapacity,totalCost,totalFtrCost,totalBugCost,totalImpCost,totalExtraCost,totalIssuesOffered,totalFtrOffered,totalBugOffered,totalImpOffered");
+                PrintStream o = new PrintStream(new File("C:/Users/Didar/Desktop/N4/Solution.txt"));
+                System.setOut(o);
+        
+        
+//        System.out.println("This will be written to the text file");
+ 
+        // Use stored value for output stream
+        
+                
+                System.out.println("Size of the solution +++++"+ obj_relPlanning.transfernonDominatedSolutions.size());
+		
+                System.out.println("solutionNum,totalCapacity,totalCost,totalThemeValue,themeCR,themeCRoffered,themeCoverage,totalValue,totalFtrValue,totalBugValue,totalImpValue,totalExtraValue,totalFtrCost,totalBugCost,totalImpCost,totalExtraCost,totalIssuesOffered,totalFtrOffered,totalBugOffered,totalImpOffered");
                 getResultsDisplay (obj_relPlanning.transfernonDominatedSolutions.size()); 
-//		getResultsIntoDB (isplanning);
+		getResultsIntoDB (isplanning);
                     
               		
 
@@ -94,6 +111,9 @@ public class homePlanner {
             for (int i=0;i<paretoFrontSize;i++){
                 calculateResults (obj_relPlanning.identifyOfferedforChoice(i),i);
             }
+            
+            System.setOut(console);
+        System.out.println("This will be written on the console!");
         }
         
         public void getResultsIntoDB (boolean isplanning){
@@ -245,11 +265,12 @@ public void calculateResults (ArrayList<DataIssueTemplate> displayIssueData, int
 //	    obj_resultFormat.distance = Math.sqrt(Math.pow((obj_resultFormat.actftrRatio-obj_resultFormat.prpftrRatio),2)+Math.pow((obj_resultFormat.actbugRatio-obj_resultFormat.prpbugRatio),2)+Math.pow((obj_resultFormat.actimpRatio-obj_resultFormat.prpimpRatio),2));
             list_resultFormat.add(obj_resultFormat); 
             
-            
-	    System.out.println(solutionNum+ ","+totalThemeValue+ ","+totalThemeCR+ ","+themeOffered+ ","+themeCoverage+ "," 
+            if (dblAvailableCapacity>totalCost){
+	    System.out.println(solutionNum+","+dblAvailableCapacity+","+totalCost+","+totalThemeValue+ ","+totalThemeCR+ ","+themeOffered+ ","+themeCoverage+ "," 
                     +totalValue  +","+totalFtrValue+","+totalBugValue+","+totalImpValue+","+totalExtraValue+","
-                    +dblAvailableCapacity+","+totalCost+","+totalFtrTimeSpent+","+totalBugTimeSpent+","+totalImpTimeSpent+","+totalExtraTimeSpent
+                    +","+totalFtrTimeSpent+","+totalBugTimeSpent+","+totalImpTimeSpent+","+totalExtraTimeSpent
                     +","+totalIssue+","+totalFtr+","+totalBug+","+totalImp);
+            }
 
 
 	}
